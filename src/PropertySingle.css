@@ -32,7 +32,7 @@
 }
 
 .property-breadcrumb .wps-container {
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 0 40px;
   font-size: 14px;
@@ -68,7 +68,7 @@
   grid-template-columns: 1fr 350px;
   gap: 30px;
   padding: 0 40px 60px;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
   align-items: start;
 }

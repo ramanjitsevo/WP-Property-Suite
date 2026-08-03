@@ -105,6 +105,11 @@ function wps_custom_styles() {
         .wps-container .properties-sidebar,
         aside.properties-sidebar {display: block !important; width: 300px !important; visibility: visible !important; opacity: 1 !important; }
 
+        /* Expand boxed Elementor sections to the plugin's default wide layout */
+        .elementor-section.elementor-section-boxed > .elementor-container {
+            max-width: 1500px !important;
+        }
+
         @media(max-width: 768px){
             .wps-app .properties-sidebar,
             .wps-app aside.properties-sidebar,
@@ -145,16 +150,44 @@ function wps_shortcode($atts) {
 }
 
 /**
+ * Build an initial property payload for the frontend so the first render is not empty.
+ *
+ * @param int $limit Number of properties to preload.
+ * @return array
+ */
+function wps_get_initial_properties_payload($limit = 10) {
+    $limit = max(1, absint($limit));
+
+    $posts = get_posts(array(
+        'post_type' => 'wps_property',
+        'post_status' => 'publish',
+        'posts_per_page' => $limit,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    ));
+
+    $properties = array();
+    foreach ($posts as $post) {
+        $property_data = wps_build_property_data($post);
+        if (!empty($property_data)) {
+            $properties[] = $property_data;
+        }
+    }
+
+    return $properties;
+}
+
+/**
  * Display recently added properties.
  *
- * Usage: [wps_recent_properties posts="6" columns="3" slider="no"]
+ * Usage: [wps_recent_properties posts="6" columns="4" slider="no"]
  */
 function wps_recent_properties_shortcode($atts) {
     $atts = shortcode_atts(array(
         'posts' => 3,
         'number' => '',
         'limit' => '',
-        'columns' => 3,
+        'columns' => 4,
         'cols' => '',
         'slider' => 'no',
         'enable_slider' => '',
@@ -242,14 +275,14 @@ function wps_recent_properties_shortcode($atts) {
 /**
  * Display properties marked as featured in the admin.
  *
- * Usage: [wps_featured_properties posts="6" columns="3" slider="no"]
+ * Usage: [wps_featured_properties posts="6" columns="4" slider="no"]
  */
 function wps_featured_properties_shortcode($atts) {
     $atts = shortcode_atts(array(
         'posts' => 3,
         'number' => '',
         'limit' => '',
-        'columns' => 3,
+        'columns' => 4,
         'cols' => '',
         'slider' => 'no',
         'enable_slider' => '',
@@ -456,7 +489,7 @@ function wps_enqueue_recent_properties_assets() {
             gap: var(--wps-recent-gap);
         }
         .wps-recent-properties.is-grid .wps-recent-properties-track {
-            grid-template-columns: repeat(var(--wps-recent-columns, 3), minmax(0, 1fr));
+            grid-template-columns: repeat(var(--wps-recent-columns, 4), minmax(0, 1fr));
         }
         .wps-recent-properties.is-slider {
             padding: 0 48px;
@@ -502,9 +535,13 @@ function wps_enqueue_recent_properties_assets() {
             background: #eef2f7;
         }
         .wps-recent-property-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            position: absolute;
+            inset: 0;
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+            object-fit: cover !important;
+            object-position: center center !important;
             transition: transform 0.25s ease;
         }
         .wps-recent-property-card:hover .wps-recent-property-image {
@@ -534,11 +571,11 @@ function wps_enqueue_recent_properties_assets() {
             display: flex;
             flex: 1;
             flex-direction: column;
-            padding: 20px;
+            gap: 8px;
+            padding: 18px 20px 20px;
         }
         .wps-recent-property-title {
-            min-height: 48px;
-            margin: 0 0 8px;
+            margin: 0;
             overflow: hidden;
             color: #1a1a2e;
             font-size: 18px;
@@ -550,12 +587,12 @@ function wps_enqueue_recent_properties_assets() {
             line-clamp: 2;
         }
         .wps-recent-property-location {
-            margin: 0 0 10px;
+            margin: 0;
             color: #666;
             font-size: 14px;
         }
         .wps-recent-property-price {
-            margin: 0 0 15px;
+            margin: 0;
             color: ' . esc_html(get_option('wps_primary_color', '#2563eb')) . ';
             font-size: 22px;
             font-weight: 800;
@@ -565,8 +602,8 @@ function wps_enqueue_recent_properties_assets() {
             flex-wrap: wrap;
             justify-content: space-around;
             gap: 12px;
-            margin-top: auto;
-            padding-top: 12px;
+            margin-top: 4px;
+            padding-top: 10px;
             border-top: 1px solid #f0f0f0;
             color: #666;
             font-size: 14px;
@@ -655,8 +692,18 @@ function wps_enqueue_assets($force = false) {
             wps_debug_log('WP Property Suite: CSS files found = ' . count($css_files));
             
             if (!empty($js_files)) {
+                usort($js_files, function($left, $right) {
+                    return filemtime($right) <=> filemtime($left);
+                });
                 $js_file = basename($js_files[0]);
-                $css_file = !empty($css_files) ? basename($css_files[0]) : null;
+
+                $css_file = null;
+                if (!empty($css_files)) {
+                    usort($css_files, function($left, $right) {
+                        return filemtime($right) <=> filemtime($left);
+                    });
+                    $css_file = basename($css_files[0]);
+                }
                 
                 wps_debug_log('WP Property Suite: Enqueuing JS = ' . $js_file);
                 
@@ -753,6 +800,7 @@ function wps_enqueue_assets($force = false) {
                         'socialTwitter' => get_option('wps_social_twitter', ''),
                         'socialLinkedin' => get_option('wps_social_linkedin', ''),
                         'socialInstagram' => get_option('wps_social_instagram', ''),
+                        'initialProperties' => wps_get_initial_properties_payload(10),
                         'currentUserId' => get_current_user_id(),
                     )
                 );
@@ -785,4 +833,11 @@ function wps_enqueue_assets($force = false) {
 
 function wps_viewport_meta() {
     echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">' . "\n";
+}
+
+/**
+ * Apply the default wide boxed container width on the public frontend.
+ */
+function wps_default_boxed_container_width() {
+    echo '<style>.elementor-section.elementor-section-boxed > .elementor-container { max-width: 1500px !important; }</style>' . "\n";
 }

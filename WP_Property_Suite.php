@@ -42,6 +42,7 @@ function wps_init() {
     add_shortcode('wps_featured_properties', 'wps_featured_properties_shortcode');
     add_action('wp_enqueue_scripts', 'wps_enqueue_assets');
     add_action('wp', 'wps_handle_layout');
+    add_action('wp_head', 'wps_default_boxed_container_width', 15);
 }
 add_action('plugins_loaded', 'wps_init');
 

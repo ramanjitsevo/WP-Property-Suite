@@ -167,7 +167,7 @@ function LeadFormModal({ property, onClose, onSubmit }) {
 
                   <div className="form-group">
                     <div className="input-icon-wrapper">
-                      <i className="input-icon fas fa-phone" aria-hidden="true"></i>
+                      <i className="input-icon fas fa-phone-flip" aria-hidden="true"></i>
                       <input
                         type="tel"
                         name="phone"

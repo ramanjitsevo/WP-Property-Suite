@@ -130,8 +130,12 @@ function LocationAutocompleteInput({ value, onChange, placeholder = 'Enter locat
 }
 
 function App({ containerId }) {
-  const [properties, setProperties] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const initialProperties = typeof window !== 'undefined' && Array.isArray(window.propertyPluginData?.initialProperties)
+    ? window.propertyPluginData.initialProperties
+    : [];
+
+  const [properties, setProperties] = useState(initialProperties);
+  const [loading, setLoading] = useState(initialProperties.length === 0);
   const [error, setError] = useState(null);
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [showLeadForm, setShowLeadForm] = useState(false);
@@ -164,7 +168,7 @@ function App({ containerId }) {
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = parseInt(settings.propertiesPerPage) || 12;
+  const postsPerPage = parseInt(settings.propertiesPerPage, 10) || 12;
 
   // Check if user has already submitted the lead form
   const hasSubmittedLeadForm = localStorage.getItem('propertyLeadFormSubmitted') === 'true';
@@ -249,7 +253,9 @@ function App({ containerId }) {
       setProperties(data);
       setError(null);
     } catch (err) {
-      setError(err.message);
+      if (initialProperties.length === 0) {
+        setError(err.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -879,6 +885,13 @@ function App({ containerId }) {
                                 src={imgSrc}
                                 alt={property.title}
                                 className="property-image"
+                                style={{
+                                  width: '100%',
+                                  height: '100%',
+                                  display: 'block',
+                                  objectFit: 'cover',
+                                  objectPosition: 'center center',
+                                }}
                               />
                             ) : (
                               <div className="property-image-placeholder">

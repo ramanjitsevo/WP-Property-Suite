@@ -381,6 +381,7 @@ function wps_meta_box_callback($post) {
                 renderGalleryPreview();
             }
         var ppMediaFrame;
+        var wpsPropertyMediaFrame;
 
         $('#wps-gallery-btn').on('click', function(e) {
             e.preventDefault();
@@ -418,6 +419,47 @@ function wps_meta_box_callback($post) {
             ids = ids.filter(function(id) { return id !== removeId; });
             $('#property_gallery_ids').val(ids.join(','));
             $(this).closest('.wps-gallery-thumb').remove();
+        });
+
+        // Generic image uploader for property agent photo.
+        $(document).on('click', '.wps-upload-img', function(e) {
+            e.preventDefault();
+
+            var $button = $(this);
+            var target = $button.data('target');
+
+            if (!target) {
+                return;
+            }
+
+            wpsPropertyMediaFrame = wp.media({
+                title: '<?php esc_attr_e('Select Image', 'wps'); ?>',
+                button: { text: '<?php esc_attr_e('Use this image', 'wps'); ?>' },
+                multiple: false,
+                library: { type: 'image' }
+            });
+
+            wpsPropertyMediaFrame.on('select', function() {
+                var attachment = wpsPropertyMediaFrame.state().get('selection').first().toJSON();
+                $('#' + target).val(attachment.url);
+                $('#' + target + '_preview').attr('src', attachment.url).show();
+                $button.siblings('.wps-remove-img').show();
+            });
+
+            wpsPropertyMediaFrame.open();
+        });
+
+        $(document).on('click', '.wps-remove-img', function(e) {
+            e.preventDefault();
+
+            var target = $(this).data('target');
+            if (!target) {
+                return;
+            }
+
+            $('#' + target).val('');
+            $('#' + target + '_preview').attr('src', '').hide();
+            $(this).hide();
         });
 
             // Additional details repeatable

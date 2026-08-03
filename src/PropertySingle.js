@@ -386,7 +386,7 @@ function PropertySingle({ property, onBack, settings }) {
       </div>
       <div className="bottom-actions">
         <a href={`tel:${(activeAgent.phone || '').replace(/[^+\d]/g, '')}`} className="btn-call">
-          <i className="fas fa-phone"></i> {activeAgent.phone || 'Call Agent'}
+          <i className="fas fa-phone-flip"></i> {activeAgent.phone || 'Call Agent'}
         </a>
         {/* <button className="btn-schedule" onClick={handleScheduleTour}>
           <i className="far fa-calendar-check"></i> Schedule a Tour
@@ -828,7 +828,7 @@ function PropertySingle({ property, onBack, settings }) {
                   <p className="agent-role">{activeAgent.role}</p>
                   {activeAgent.phone && (
                     <a href={`tel:${activeAgent.phone.replace(/[^+\d]/g, '')}`} className="agent-link">
-                      <i className="fas fa-phone"></i>
+                      <i className="fas fa-phone-flip"></i>
                       <span>{activeAgent.phone}</span>
                     </a>
                   )}

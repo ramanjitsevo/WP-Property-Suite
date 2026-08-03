@@ -2016,17 +2016,17 @@ function wps_shortcode_guide_page() {
                             <?php _e('Displays a compact grid or slider of the latest published properties.', 'wps'); ?>
                             <ul style="margin:6px 0 0 18px; list-style:disc; color:#50575e;">
                                 <li><?php _e('<code>posts</code> — number of properties to display, for example <code>posts="6"</code>', 'wps'); ?></li>
-                                <li><?php _e('<code>columns</code> — number of cards per row when slider is disabled, for example <code>columns="3"</code>', 'wps'); ?></li>
+                                <li><?php _e('<code>columns</code> — number of cards per row when slider is disabled, for example <code>columns="4"</code>', 'wps'); ?></li>
                                 <li><?php _e('<code>slider</code> — use <code>slider="yes"</code> to enable a horizontal slider. Columns are ignored when slider is enabled.', 'wps'); ?></li>
                             </ul>
                             <p style="margin:8px 0 0;">
-                                <code>[wps_recent_properties posts="6" columns="3"]</code><br>
+                                <code>[wps_recent_properties posts="6" columns="4"]</code><br>
                                 <code>[wps_recent_properties posts="8" slider="yes"]</code>
                             </p>
                         </td>
                         <td><?php _e('Homepage, sidebar areas, landing pages, or blog posts', 'wps'); ?></td>
                         <td>
-                            <button type="button" class="button ppg-copy-btn" data-copy='[wps_recent_properties posts="6" columns="3"]'>
+                            <button type="button" class="button ppg-copy-btn" data-copy='[wps_recent_properties posts="6" columns="4"]'>
                                 <span class="dashicons dashicons-clipboard"></span>
                             </button>
                         </td>
@@ -2038,17 +2038,17 @@ function wps_shortcode_guide_page() {
                             <?php _e('Displays properties marked as featured from the Property edit screen.', 'wps'); ?>
                             <ul style="margin:6px 0 0 18px; list-style:disc; color:#50575e;">
                                 <li><?php _e('<code>posts</code> — number of featured properties to display, for example <code>posts="6"</code>', 'wps'); ?></li>
-                                <li><?php _e('<code>columns</code> — number of cards per row when slider is disabled, for example <code>columns="3"</code>', 'wps'); ?></li>
+                                <li><?php _e('<code>columns</code> — number of cards per row when slider is disabled, for example <code>columns="4"</code>', 'wps'); ?></li>
                                 <li><?php _e('<code>slider</code> — use <code>slider="yes"</code> to enable a horizontal slider. Columns are ignored when slider is enabled.', 'wps'); ?></li>
                             </ul>
                             <p style="margin:8px 0 0;">
-                                <code>[wps_featured_properties posts="6" columns="3"]</code><br>
+                                <code>[wps_featured_properties posts="6" columns="4"]</code><br>
                                 <code>[wps_featured_properties posts="8" slider="yes"]</code>
                             </p>
                         </td>
                         <td><?php _e('Homepage, landing pages, sidebar areas, or featured sections', 'wps'); ?></td>
                         <td>
-                            <button type="button" class="button ppg-copy-btn" data-copy='[wps_featured_properties posts="6" columns="3"]'>
+                            <button type="button" class="button ppg-copy-btn" data-copy='[wps_featured_properties posts="6" columns="4"]'>
                                 <span class="dashicons dashicons-clipboard"></span>
                             </button>
                         </td>
