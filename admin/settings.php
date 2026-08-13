@@ -202,6 +202,10 @@ function wps_settings_page() {
                     <span class="dashicons dashicons-exerpt-view"></span>
                     <?php _e('Homepage Sections', 'wps'); ?>
                 </button>
+                <button class="tab-button" data-tab="email-templates">
+                    <span class="dashicons dashicons-email"></span>
+                    <?php _e('Email Templates', 'wps'); ?>
+                </button>
             </div>
 
             <!-- Settings Content -->
@@ -957,6 +961,71 @@ function wps_settings_page() {
                     </div>
                 </div>
 
+                <!-- Email Templates Tab -->
+                <div class="tab-content" id="email-templates">
+                    <div class="settings-section">
+                        <h2><?php _e('Email Template — Lead Notifications', 'wps'); ?></h2>
+                        <p class="section-description"><?php _e('Customize the HTML email template sent to admins when a new lead is captured. Available variables are listed below.', 'wps'); ?></p>
+                        
+                        <!-- Available Variables -->
+                        <div style="background: #f0f6fc; border-left: 4px solid #2271b1; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                            <h3 style="margin-top: 0; color: #1d2327;"><?php _e('Available Variables', 'wps'); ?></h3>
+                            <p style="margin: 10px 0; font-size: 13px; color: #3c434a;">
+                                <?php _e('Use these variables in your email template. They will be replaced with actual values:', 'wps'); ?>
+                            </p>
+                            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                                <?php foreach (wps_get_email_template_variables() as $var => $desc): ?>
+                                <tr style="border-bottom: 1px solid #d0dce6;">
+                                    <td style="padding: 8px; width: 150px;"><code style="background: #fff; padding: 2px 6px; border-radius: 3px; color: #d63638;"><?php echo esc_html($var); ?></code></td>
+                                    <td style="padding: 8px; color: #555;"><?php echo esc_html($desc); ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </table>
+                        </div>
+
+                        <table class="form-table">
+                            <tr>
+                                <th scope="row">
+                                    <label for="lead_email_subject"><?php _e('Email Subject', 'wps'); ?></label>
+                                </th>
+                                <td>
+                                    <input type="text" id="lead_email_subject" name="wps_lead_email_subject" 
+                                           value="<?php echo esc_attr(wps_get_lead_email_subject()); ?>" 
+                                           class="large-text" />
+                                    <p class="description"><?php _e('Use variables like {name}, {property_title}, etc. in the subject line.', 'wps'); ?></p>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <th scope="row">
+                                    <label for="lead_email_template"><?php _e('Email HTML Template', 'wps'); ?></label>
+                                </th>
+                                <td>
+                                    <?php 
+                                    wp_editor(
+                                        wps_get_lead_email_template(), 
+                                        'wps_lead_email_template',
+                                        array(
+                                            'media_buttons' => false,
+                                            'teeny' => false,
+                                            'textarea_rows' => 20,
+                                            'editor_class' => 'large-text code',
+                                            'editor_height' => 400,
+                                        )
+                                    );
+                                    ?>
+                                    <p class="description">
+                                        <?php _e('Edit the HTML template for lead notification emails. You can customize styling, layout, and content.', 'wps'); ?>
+                                    </p>
+                                    <button type="button" class="button" id="reset-email-template" style="margin-top: 10px;">
+                                        <?php _e('Reset to Default Template', 'wps'); ?>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -1352,6 +1421,28 @@ function wps_settings_page() {
         
         $('#save-all-settings, #save-all-settings-bottom').on('click', saveSettings);
         
+        // Reset email template
+        $('#reset-email-template').on('click', function(e) {
+            e.preventDefault();
+            if (!confirm('<?php echo esc_js(__('Are you sure you want to reset the email template to default? Your current template will be replaced.', 'wps')); ?>')) {
+                return;
+            }
+            
+            $.post(ajaxurl, {
+                action: 'wps_reset_email_template',
+                nonce: '<?php echo wp_create_nonce('wps_nonce'); ?>'
+            }, function(response) {
+                if (response.success) {
+                    alert('<?php echo esc_js(__('Email template reset to default successfully. Please refresh the page.', 'wps')); ?>');
+                    location.reload();
+                } else {
+                    alert('<?php echo esc_js(__('Error resetting template: ', 'wps')); ?>' + response.data);
+                }
+            }).fail(function() {
+                alert('<?php echo esc_js(__('AJAX request failed. Please try again.', 'wps')); ?>');
+            });
+        });
+        
         // Keyboard shortcut: Ctrl+S to save
         $(document).on('keydown', function(e) {
             if ((e.ctrlKey || e.metaKey) && e.key === 's') {
@@ -1658,6 +1749,21 @@ function wps_delete_taxonomy_ajax() {
     wp_send_json_success('Taxonomy deleted successfully');
 }
 add_action('wp_ajax_wps_delete_taxonomy', 'wps_delete_taxonomy_ajax');
+
+/**
+ * AJAX handler to reset email template to default
+ */
+function wps_reset_email_template_ajax() {
+    check_ajax_referer('wps_nonce', 'nonce');
+    
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error('Insufficient permissions');
+    }
+    
+    wps_reset_email_template();
+    wp_send_json_success('Email template reset to default');
+}
+add_action('wp_ajax_wps_reset_email_template', 'wps_reset_email_template_ajax');
 
 /**
  * Leads admin page callback — display captured leads

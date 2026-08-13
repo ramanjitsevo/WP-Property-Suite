@@ -759,7 +759,8 @@ h1.property-title {
 .agent-name {
   font-size: 18px;
   color: #1a1a2e;
-  margin-bottom: 2px;
+  margin: 0;
+  padding: 0;
 }
 
 .agent-role {

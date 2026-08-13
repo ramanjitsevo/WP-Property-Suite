@@ -24,6 +24,7 @@ define('WPS_PLUGIN_VERSION', '1.0.0');
 
 require_once WPS_PLUGIN_PATH . 'includes/helpers.php';
 require_once WPS_PLUGIN_PATH . 'includes/post-types.php';
+require_once WPS_PLUGIN_PATH . 'includes/email-templates.php';
 require_once WPS_PLUGIN_PATH . 'includes/frontend.php';
 require_once WPS_PLUGIN_PATH . 'includes/rest-api.php';
 require_once WPS_PLUGIN_PATH . 'includes/demo-data.php';
@@ -55,6 +56,10 @@ function wps_activate() {
     wps_create_leads_table();
 
     flush_rewrite_rules();
+    
+    // Install default demo properties on activation
+    wps_install_default_data();
+    
     set_transient('wps_show_activation_notice', true, 60);
 }
 register_activation_hook(__FILE__, 'wps_activate');
