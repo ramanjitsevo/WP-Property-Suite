@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WP Property Suite
+ * Plugin Name: Evolvan Real Estate Listings
  * Plugin URI: https://evolvan.com/wp-property-suite/
  * Description: A React-powered real estate plugin for managing property listings, search filters, lead capture, and single-property pages.
  * Version: 1.0.0

@@ -1,4 +1,4 @@
-=== WP Property Suite ===
+=== Evolvan Real Estate Listings ===
 Contributors: evolvan
 Tags: real estate, property, listings, react, shortcode
 Requires at least: 6.0

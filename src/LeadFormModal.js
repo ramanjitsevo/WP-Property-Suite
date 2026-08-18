@@ -28,14 +28,15 @@ function LeadFormModal({ property, onClose, onSubmit }) {
     setIsSubmitting(true);
     setSubmitError('');
 
-    const payload = {
-      name:          formData.name,
-      email:         formData.email,
-      phone:         formData.phone,
-      message:       formData.message,
-      propertyId:    property?.id    || 0,
-      propertyTitle: property?.title || '',
-    };
+   const payload = {
+    name:          formData.name,
+    email:         formData.email,
+    phone:          formData.phone,
+    message:       formData.message,
+    propertyId:    property?.id || 0,
+    propertyTitle: property?.title || '',
+    website:       '',
+};
 
     try {
       const response = await fetch(`${apiUrl}/leads`, {

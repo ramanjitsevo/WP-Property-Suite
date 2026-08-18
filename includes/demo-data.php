@@ -51,7 +51,21 @@ function wps_install_default_data($force = false) {
 
     foreach ($props as $idx => $p) {
         // Skip if a property with the same title exists
-        $existing = get_page_by_title($p['title'] ?? '', OBJECT, 'wps_property');
+        $existing = null;
+
+    $property_query = new WP_Query(
+    array(
+        'post_type'      => 'wps_property',
+        'post_status'    => 'any',
+        'title'          => $p['title'] ?? '',
+        'posts_per_page' => 1,
+        'no_found_rows'  => true,
+    )
+);
+
+    if ( ! empty( $property_query->posts ) ) {
+    $existing = $property_query->posts[0];
+    }
         if ($existing) {
             wps_debug_log('[WP Property Suite] Skipping property ' . ($idx + 1) . ' - already exists: ' . ($p['title'] ?? ''));
             continue;
@@ -318,7 +332,21 @@ function wps_install_default_leads() {
     );
 
     foreach ($sample_leads as $lead) {
-        $property = get_page_by_title($lead['property_title'], OBJECT, 'wps_property');
+        $property = null;
+
+        $property_query = new WP_Query(
+        array(
+        'post_type'      => 'wps_property',
+        'post_status'    => 'any',
+        'title'          => $lead['property_title'],
+        'posts_per_page' => 1,
+        'no_found_rows'  => true,
+    )
+);
+
+if ( ! empty( $property_query->posts ) ) {
+    $property = $property_query->posts[0];
+}
         $property_id = $property ? intval($property->ID) : 0;
 
         $exists = $wpdb->get_var(
