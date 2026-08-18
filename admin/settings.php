@@ -14,8 +14,8 @@ if (!defined('ABSPATH')) {
  */
 function wps_add_admin_menu() {
     add_menu_page(
-        __('WP Property Suite Settings', 'wps'),
-        __('WP Property Suite Settings', 'wps'),
+        __('WP Property Suite Settings', 'evo-property-suite'),
+        __('WP Property Suite Settings', 'evo-property-suite'),
         'manage_options',
         'wps-settings',
         'wps_settings_page',
@@ -25,8 +25,8 @@ function wps_add_admin_menu() {
     
     add_submenu_page(
         'wps-settings',
-        __('Shortcode Guide', 'wps'),
-        __('Shortcode Guide', 'wps'),
+        __('Shortcode Guide', 'evo-property-suite'),
+        __('Shortcode Guide', 'evo-property-suite'),
         'manage_options',
         'wps-guide',
         'wps_shortcode_guide_page'
@@ -34,8 +34,8 @@ function wps_add_admin_menu() {
     // Leads submenu - view captured leads
     add_submenu_page(
         'wps-settings',
-        __('Leads', 'wps'),
-        __('Leads', 'wps'),
+        __('Leads', 'evo-property-suite'),
+        __('Leads', 'evo-property-suite'),
         'manage_options',
         'wps-leads',
         'wps_leads_page'
@@ -151,11 +151,11 @@ function wps_settings_page() {
     ?>
     <div class="wrap wps-settings">
         <div class="wps-header">
-            <h1><?php _e('WP Property Suite Settings', 'wps'); ?></h1>
-            <p class="description"><?php _e('Manage all plugin settings from one place. Changes will appear on the frontend after refreshing the page.', 'wps'); ?></p>
-                <button type="button" class="button button-primary" id="save-all-settings"><?php _e('Save All Changes', 'wps'); ?></button>
+            <h1><?php _e('WP Property Suite Settings', 'evo-property-suite'); ?></h1>
+            <p class="description"><?php _e('Manage all plugin settings from one place. Changes will appear on the frontend after refreshing the page.', 'evo-property-suite'); ?></p>
+                <button type="button" class="button button-primary" id="save-all-settings"><?php _e('Save All Changes', 'evo-property-suite'); ?></button>
                 <button type="button" class="button button-secondary" id="import-sample-data" style="margin-left:10px;">
-                    <?php _e('Import Sample Data', 'wps'); ?>
+                    <?php _e('Import Sample Data', 'evo-property-suite'); ?>
                 </button>
         </div>
 
@@ -164,47 +164,47 @@ function wps_settings_page() {
             <div class="wps-tabs">
                 <button class="tab-button active" data-tab="general">
                     <span class="dashicons dashicons-admin-generic"></span>
-                    <?php _e('General', 'wps'); ?>
+                    <?php _e('General', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="banner">
                     <span class="dashicons dashicons-format-image"></span>
-                    <?php _e('Banner & Header', 'wps'); ?>
+                    <?php _e('Banner & Header', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="colors">
                     <span class="dashicons dashicons-admin-appearance"></span>
-                    <?php _e('Colors & Typography', 'wps'); ?>
+                    <?php _e('Colors & Typography', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="card">
                     <span class="dashicons dashicons-layout"></span>
-                    <?php _e('Property Card', 'wps'); ?>
+                    <?php _e('Property Card', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="taxonomies">
                     <span class="dashicons dashicons-category"></span>
-                    <?php _e('Custom Taxonomies', 'wps'); ?>
+                    <?php _e('Custom Taxonomies', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="single">
                     <span class="dashicons dashicons-admin-page"></span>
-                    <?php _e('Single Property Page', 'wps'); ?>
+                    <?php _e('Single Property Page', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="contact">
                     <span class="dashicons dashicons-email"></span>
-                    <?php _e('Contact & Lead Form', 'wps'); ?>
+                    <?php _e('Contact & Lead Form', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="api">
                     <span class="dashicons dashicons-admin-network"></span>
-                    <?php _e('API Keys', 'wps'); ?>
+                    <?php _e('API Keys', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="advanced">
                     <span class="dashicons dashicons-admin-tools"></span>
-                    <?php _e('Advanced', 'wps'); ?>
+                    <?php _e('Advanced', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="sections">
                     <span class="dashicons dashicons-exerpt-view"></span>
-                    <?php _e('Homepage Sections', 'wps'); ?>
+                    <?php _e('Homepage Sections', 'evo-property-suite'); ?>
                 </button>
                 <button class="tab-button" data-tab="email-templates">
                     <span class="dashicons dashicons-email"></span>
-                    <?php _e('Email Templates', 'wps'); ?>
+                    <?php _e('Email Templates', 'evo-property-suite'); ?>
                 </button>
             </div>
 
@@ -214,97 +214,97 @@ function wps_settings_page() {
                 <!-- General Settings Tab -->
                 <div class="tab-content active" id="general">
                     <div class="settings-section">
-                        <h2><?php _e('General Settings', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Configure basic plugin settings', 'wps'); ?></p>
+                        <h2><?php _e('General Settings', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Configure basic plugin settings', 'evo-property-suite'); ?></p>
                         
                         <table class="form-table">
                             <tr>
                                 <th scope="row">
-                                    <label for="header_text"><?php _e('Header Text', 'wps'); ?></label>
+                                    <label for="header_text"><?php _e('Header Text', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="text" id="header_text" name="wps_header_text" 
                                            value="<?php echo esc_attr(get_option('wps_header_text', 'Find Your Dream Property')); ?>" 
                                            class="regular-text" />
-                                    <p class="description"><?php _e('Main heading text for the property listings page', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Main heading text for the property listings page', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="properties_per_page"><?php _e('Properties Per Page', 'wps'); ?></label>
+                                    <label for="properties_per_page"><?php _e('Properties Per Page', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="number" id="properties_per_page" name="wps_properties_per_page" 
                                            value="<?php echo esc_attr(get_option('wps_properties_per_page', '12')); ?>" 
                                            class="small-text" min="1" max="100" />
-                                    <p class="description"><?php _e('Number of properties to display per page', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Number of properties to display per page', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="default_currency"><?php _e('Default Currency', 'wps'); ?></label>
+                                    <label for="default_currency"><?php _e('Default Currency', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <select id="default_currency" name="wps_default_currency">
-                                        <option value="USD" <?php selected(get_option('wps_default_currency', 'USD'), 'USD'); ?>><?php _e('USD ($) - US Dollar', 'wps'); ?></option>
-                                        <option value="EUR" <?php selected(get_option('wps_default_currency', 'USD'), 'EUR'); ?>><?php _e('EUR (€) - Euro', 'wps'); ?></option>
-                                        <option value="GBP" <?php selected(get_option('wps_default_currency', 'USD'), 'GBP'); ?>><?php _e('GBP (£) - British Pound', 'wps'); ?></option>
-                                        <option value="INR" <?php selected(get_option('wps_default_currency', 'USD'), 'INR'); ?>><?php _e('INR (₹) - Indian Rupee', 'wps'); ?></option>
-                                        <option value="PKR" <?php selected(get_option('wps_default_currency', 'USD'), 'PKR'); ?>><?php _e('PKR (Rs) - Pakistani Rupee', 'wps'); ?></option>
+                                        <option value="USD" <?php selected(get_option('wps_default_currency', 'USD'), 'USD'); ?>><?php _e('USD ($) - US Dollar', 'evo-property-suite'); ?></option>
+                                        <option value="EUR" <?php selected(get_option('wps_default_currency', 'USD'), 'EUR'); ?>><?php _e('EUR (€) - Euro', 'evo-property-suite'); ?></option>
+                                        <option value="GBP" <?php selected(get_option('wps_default_currency', 'USD'), 'GBP'); ?>><?php _e('GBP (£) - British Pound', 'evo-property-suite'); ?></option>
+                                        <option value="INR" <?php selected(get_option('wps_default_currency', 'USD'), 'INR'); ?>><?php _e('INR (₹) - Indian Rupee', 'evo-property-suite'); ?></option>
+                                        <option value="PKR" <?php selected(get_option('wps_default_currency', 'USD'), 'PKR'); ?>><?php _e('PKR (Rs) - Pakistani Rupee', 'evo-property-suite'); ?></option>
                                     </select>
                                 </td>
                             </tr>
                             
                             <tr>
-                                <th scope="row"><?php _e('Features', 'wps'); ?></th>
+                                <th scope="row"><?php _e('Features', 'evo-property-suite'); ?></th>
                                 <td>
                                     <fieldset>
                                         <label>
                                             <input type="checkbox" name="wps_enable_compare" 
                                                    <?php checked(get_option('wps_enable_compare', '1'), '1'); ?> />
-                                            <?php _e('Enable Property Compare', 'wps'); ?>
+                                            <?php _e('Enable Property Compare', 'evo-property-suite'); ?>
                                         </label>
-                                        <p class="description"><?php _e('Allow users to compare multiple properties', 'wps'); ?></p>
+                                        <p class="description"><?php _e('Allow users to compare multiple properties', 'evo-property-suite'); ?></p>
                                     </fieldset>
                                     
                                     <fieldset>
                                         <label>
                                             <input type="checkbox" name="wps_enable_preloader" 
                                                    <?php checked(get_option('wps_enable_preloader', '1'), '1'); ?> />
-                                            <?php _e('Enable Preloader', 'wps'); ?>
+                                            <?php _e('Enable Preloader', 'evo-property-suite'); ?>
                                         </label>
-                                        <p class="description"><?php _e('Show loading animation while properties load', 'wps'); ?></p>
+                                        <p class="description"><?php _e('Show loading animation while properties load', 'evo-property-suite'); ?></p>
                                     </fieldset>
                                 </td>
                             </tr>
                         </table>
-                        <h3 style="margin-top:20px;"><?php _e('Social Media Links', 'wps'); ?></h3>
+                        <h3 style="margin-top:20px;"><?php _e('Social Media Links', 'evo-property-suite'); ?></h3>
                         <table class="form-table">
                             <tr>
-                                <th scope="row"><label for="social_facebook"><?php _e('Facebook URL', 'wps'); ?></label></th>
+                                <th scope="row"><label for="social_facebook"><?php _e('Facebook URL', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="url" id="social_facebook" name="wps_social_facebook"
                                            value="<?php echo esc_attr(get_option('wps_social_facebook', '')); ?>" class="large-text" placeholder="https://facebook.com/yourpage" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="social_twitter"><?php _e('Twitter URL', 'wps'); ?></label></th>
+                                <th scope="row"><label for="social_twitter"><?php _e('Twitter URL', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="url" id="social_twitter" name="wps_social_twitter"
                                            value="<?php echo esc_attr(get_option('wps_social_twitter', '')); ?>" class="large-text" placeholder="https://twitter.com/yourhandle" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="social_linkedin"><?php _e('LinkedIn URL', 'wps'); ?></label></th>
+                                <th scope="row"><label for="social_linkedin"><?php _e('LinkedIn URL', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="url" id="social_linkedin" name="wps_social_linkedin"
                                            value="<?php echo esc_attr(get_option('wps_social_linkedin', '')); ?>" class="large-text" placeholder="https://linkedin.com/company/yourcompany" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="social_instagram"><?php _e('Instagram URL', 'wps'); ?></label></th>
+                                <th scope="row"><label for="social_instagram"><?php _e('Instagram URL', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="url" id="social_instagram" name="wps_social_instagram"
                                            value="<?php echo esc_attr(get_option('wps_social_instagram', '')); ?>" class="large-text" placeholder="https://instagram.com/yourhandle" />
@@ -317,13 +317,13 @@ function wps_settings_page() {
                 <!-- Banner & Header Tab -->
                 <div class="tab-content" id="banner">
                     <div class="settings-section">
-                        <h2><?php _e('Banner & Header Settings', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Customize the banner image and header appearance', 'wps'); ?></p>
+                        <h2><?php _e('Banner & Header Settings', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Customize the banner image and header appearance', 'evo-property-suite'); ?></p>
                         
                         <table class="form-table">
                             <tr>
                                 <th scope="row">
-                                    <label for="banner_image"><?php _e('Banner Image', 'wps'); ?></label>
+                                    <label for="banner_image"><?php _e('Banner Image', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <div class="image-upload-container">
@@ -332,73 +332,73 @@ function wps_settings_page() {
                                         <br/>
                                         <input type="hidden" id="banner_image" name="wps_banner_image" 
                                                value="<?php echo esc_attr(get_option('wps_banner_image', '')); ?>" />
-                                        <button type="button" class="button" id="upload_banner_image"><?php _e('Upload Image', 'wps'); ?></button>
-                                        <button type="button" class="button" id="remove_banner_image" <?php echo get_option('wps_banner_image') ? '' : 'style="display:none;"'; ?>><?php _e('Remove Image', 'wps'); ?></button>
-                                        <p class="description"><?php _e('Upload a banner image for the property listings page. Recommended size: 1920x600px', 'wps'); ?></p>
+                                        <button type="button" class="button" id="upload_banner_image"><?php _e('Upload Image', 'evo-property-suite'); ?></button>
+                                        <button type="button" class="button" id="remove_banner_image" <?php echo get_option('wps_banner_image') ? '' : 'style="display:none;"'; ?>><?php _e('Remove Image', 'evo-property-suite'); ?></button>
+                                        <p class="description"><?php _e('Upload a banner image for the property listings page. Recommended size: 1920x600px', 'evo-property-suite'); ?></p>
                                     </div>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="banner_subtitle"><?php _e('Banner Subtitle', 'wps'); ?></label>
+                                    <label for="banner_subtitle"><?php _e('Banner Subtitle', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="text" id="banner_subtitle" name="wps_banner_subtitle" 
                                            value="<?php echo esc_attr(get_option('wps_banner_subtitle', 'Discover the perfect home for your family')); ?>" 
                                            class="regular-text" />
-                                    <p class="description"><?php _e('Subtitle text displayed below the main heading', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Subtitle text displayed below the main heading', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="banner_height"><?php _e('Banner Height for Desktop', 'wps'); ?></label>
+                                    <label for="banner_height"><?php _e('Banner Height for Desktop', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="range" id="banner_height" name="wps_banner_height" 
                                            value="<?php echo esc_attr(get_option('wps_banner_height', '320')); ?>" 
                                            min="200" max="800" class="range-slider" />
                                     <span id="banner_height_value"><?php echo esc_attr(get_option('wps_banner_height', '320')); ?>px</span>
-                                    <p class="description"><?php _e('Desktop banner height. Default: 320px.', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Desktop banner height. Default: 320px.', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
 
                             <tr>
                                 <th scope="row">
-                                    <label for="banner_height_mobile"><?php _e('Banner Height for Mobile', 'wps'); ?></label>
+                                    <label for="banner_height_mobile"><?php _e('Banner Height for Mobile', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="range" id="banner_height_mobile" name="wps_banner_height_mobile"
                                            value="<?php echo esc_attr(get_option('wps_banner_height_mobile', '250')); ?>"
                                            min="160" max="500" class="range-slider" />
                                     <span id="banner_height_mobile_value"><?php echo esc_attr(get_option('wps_banner_height_mobile', '250')); ?>px</span>
-                                    <p class="description"><?php _e('Mobile banner height. Default: 250px.', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Mobile banner height. Default: 250px.', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="banner_overlay"><?php _e('Banner Overlay', 'wps'); ?></label>
+                                    <label for="banner_overlay"><?php _e('Banner Overlay', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="range" id="banner_overlay" name="wps_banner_overlay" 
                                            value="<?php echo esc_attr(get_option('wps_banner_overlay', '50')); ?>" 
                                            min="0" max="100" class="range-slider" />
                                     <span id="banner_overlay_value"><?php echo esc_attr(get_option('wps_banner_overlay', '50')); ?>%</span>
-                                    <p class="description"><?php _e('Dark overlay opacity on banner image (0-100%)', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Dark overlay opacity on banner image (0-100%)', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="banner_overlay_color"><?php _e('Overlay Color', 'wps'); ?></label>
+                                    <label for="banner_overlay_color"><?php _e('Overlay Color', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="color" id="banner_overlay_color" name="wps_banner_overlay_color" 
                                            value="<?php echo esc_attr(get_option('wps_banner_overlay_color', '#000000')); ?>" 
                                            class="color-picker" />
-                                    <p class="description"><?php _e('Choose overlay color for better text readability', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Choose overlay color for better text readability', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                         </table>
@@ -408,73 +408,73 @@ function wps_settings_page() {
                 <!-- Colors & Typography Tab -->
                 <div class="tab-content" id="colors">
                     <div class="settings-section">
-                        <h2><?php _e('Colors & Typography', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Customize colors and fonts for your property listings', 'wps'); ?></p>
+                        <h2><?php _e('Colors & Typography', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Customize colors and fonts for your property listings', 'evo-property-suite'); ?></p>
                         
                         <table class="form-table">
                             <tr>
                                 <th scope="row">
-                                    <label for="primary_color"><?php _e('Primary Color', 'wps'); ?></label>
+                                    <label for="primary_color"><?php _e('Primary Color', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="color" id="primary_color" name="wps_primary_color" 
                                            value="<?php echo esc_attr(get_option('wps_primary_color', '#2563eb')); ?>" 
                                            class="color-picker" />
-                                    <p class="description"><?php _e('Main brand color used for buttons, links, and accents', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Main brand color used for buttons, links, and accents', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="secondary_color"><?php _e('Secondary Color', 'wps'); ?></label>
+                                    <label for="secondary_color"><?php _e('Secondary Color', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="color" id="secondary_color" name="wps_secondary_color" 
                                            value="<?php echo esc_attr(get_option('wps_secondary_color', '#10b981')); ?>" 
                                            class="color-picker" />
-                                    <p class="description"><?php _e('Secondary color for badges and highlights', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Secondary color for badges and highlights', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="text_color"><?php _e('Text Color', 'wps'); ?></label>
+                                    <label for="text_color"><?php _e('Text Color', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="color" id="text_color" name="wps_text_color" 
                                            value="<?php echo esc_attr(get_option('wps_text_color', '#1f2937')); ?>" 
                                            class="color-picker" />
-                                    <p class="description"><?php _e('Default text color for content', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Default text color for content', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="background_color"><?php _e('Background Color', 'wps'); ?></label>
+                                    <label for="background_color"><?php _e('Background Color', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="color" id="background_color" name="wps_background_color" 
                                            value="<?php echo esc_attr(get_option('wps_background_color', '#f3f4f6')); ?>" 
                                            class="color-picker" />
-                                    <p class="description"><?php _e('Page background color', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Page background color', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="card_background"><?php _e('Card Background Color', 'wps'); ?></label>
+                                    <label for="card_background"><?php _e('Card Background Color', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="color" id="card_background" name="wps_card_background" 
                                            value="<?php echo esc_attr(get_option('wps_card_background', '#ffffff')); ?>" 
                                            class="color-picker" />
-                                    <p class="description"><?php _e('Background color for property cards', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Background color for property cards', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="font_family"><?php _e('Font Family', 'wps'); ?></label>
+                                    <label for="font_family"><?php _e('Font Family', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <select id="font_family" name="wps_font_family">
@@ -490,14 +490,14 @@ function wps_settings_page() {
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="font_size"><?php _e('Base Font Size', 'wps'); ?></label>
+                                    <label for="font_size"><?php _e('Base Font Size', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="range" id="font_size" name="wps_font_size" 
                                            value="<?php echo esc_attr(get_option('wps_font_size', '16')); ?>" 
                                            min="12" max="24" class="range-slider" />
                                     <span id="font_size_value"><?php echo esc_attr(get_option('wps_font_size', '16')); ?>px</span>
-                                    <p class="description"><?php _e('Base font size for all text', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Base font size for all text', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                         </table>
@@ -507,18 +507,18 @@ function wps_settings_page() {
                 <!-- Property Card Tab -->
                 <div class="tab-content" id="card">
                     <div class="settings-section">
-                        <h2><?php _e('Property Card Settings', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Configure how property cards are displayed', 'wps'); ?></p>
+                        <h2><?php _e('Property Card Settings', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Configure how property cards are displayed', 'evo-property-suite'); ?></p>
                         
                         <table class="form-table">
                             <tr>
-                                <th scope="row"><?php _e('Display Options', 'wps'); ?></th>
+                                <th scope="row"><?php _e('Display Options', 'evo-property-suite'); ?></th>
                                 <td>
                                     <fieldset>
                                         <label>
                                             <input type="checkbox" name="wps_show_badge" 
                                                    <?php checked(get_option('wps_show_badge', '1'), '1'); ?> />
-                                            <?php _e('Show Status Badge (For Sale, For Rent, etc.)', 'wps'); ?>
+                                            <?php _e('Show Status Badge (For Sale, For Rent, etc.)', 'evo-property-suite'); ?>
                                         </label>
                                     </fieldset>
                                     
@@ -526,7 +526,7 @@ function wps_settings_page() {
                                         <label>
                                             <input type="checkbox" name="wps_show_area" 
                                                    <?php checked(get_option('wps_show_area', '1'), '1'); ?> />
-                                            <?php _e('Show Property Area', 'wps'); ?>
+                                            <?php _e('Show Property Area', 'evo-property-suite'); ?>
                                         </label>
                                     </fieldset>
                                     
@@ -534,7 +534,7 @@ function wps_settings_page() {
                                         <label>
                                             <input type="checkbox" name="wps_show_address" 
                                                    <?php checked(get_option('wps_show_address', '1'), '1'); ?> />
-                                            <?php _e('Show Full Address', 'wps'); ?>
+                                            <?php _e('Show Full Address', 'evo-property-suite'); ?>
                                         </label>
                                     </fieldset>
                                 </td>
@@ -546,38 +546,38 @@ function wps_settings_page() {
                 <!-- Custom Taxonomies Tab -->
                 <div class="tab-content" id="taxonomies">
                     <div class="settings-section">
-                        <h2><?php _e('Custom Taxonomies Manager', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Create custom taxonomies for your properties (e.g., Floor, Year Built, Parking, etc.)', 'wps'); ?></p>
+                        <h2><?php _e('Custom Taxonomies Manager', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Create custom taxonomies for your properties (e.g., Floor, Year Built, Parking, etc.)', 'evo-property-suite'); ?></p>
                         
                         <div class="taxonomy-creator">
-                            <h3><?php _e('Create New Taxonomy', 'wps'); ?></h3>
+                            <h3><?php _e('Create New Taxonomy', 'evo-property-suite'); ?></h3>
                             <table class="form-table">
                                 <tr>
                                     <th scope="row">
-                                        <label for="new_taxonomy_name"><?php _e('Taxonomy Name', 'wps'); ?></label>
+                                        <label for="new_taxonomy_name"><?php _e('Taxonomy Name', 'evo-property-suite'); ?></label>
                                     </th>
                                     <td>
                                         <input type="text" id="new_taxonomy_name" name="new_taxonomy_name" 
                                                class="regular-text" placeholder="e.g., Floors" />
-                                        <p class="description"><?php _e('Display name for the taxonomy (e.g., Floors, Year Built, Parking)', 'wps'); ?></p>
+                                        <p class="description"><?php _e('Display name for the taxonomy (e.g., Floors, Year Built, Parking)', 'evo-property-suite'); ?></p>
                                     </td>
                                 </tr>
                                 
                                 <tr>
                                     <th scope="row">
-                                        <label for="new_taxonomy_slug"><?php _e('Taxonomy Slug', 'wps'); ?></label>
+                                        <label for="new_taxonomy_slug"><?php _e('Taxonomy Slug', 'evo-property-suite'); ?></label>
                                     </th>
                                     <td>
                                         <input type="text" id="new_taxonomy_slug" name="new_taxonomy_slug" 
                                                class="regular-text" placeholder="e.g., property-floor" />
-                                        <p class="description"><?php _e('Unique slug (lowercase, hyphens allowed). Example: property-floor, year-built, amenities', 'wps'); ?></p>
+                                        <p class="description"><?php _e('Unique slug (lowercase, hyphens allowed). Example: property-floor, year-built, amenities', 'evo-property-suite'); ?></p>
                                     </td>
                                 </tr>
                                 
                                 <tr>
-                                    <th scope="row"><?php _e('Actions', 'wps'); ?></th>
+                                    <th scope="row"><?php _e('Actions', 'evo-property-suite'); ?></th>
                                     <td>
-                                        <button type="button" class="button button-primary" id="create-taxonomy"><?php _e('Create Taxonomy', 'wps'); ?></button>
+                                        <button type="button" class="button button-primary" id="create-taxonomy"><?php _e('Create Taxonomy', 'evo-property-suite'); ?></button>
                                         <span class="taxonomy-status" id="taxonomy-status"></span>
                                     </td>
                                 </tr>
@@ -585,24 +585,24 @@ function wps_settings_page() {
                         </div>
                         
                         <div class="taxonomy-list">
-                            <h3><?php _e('Existing Custom Taxonomies', 'wps'); ?></h3>
+                            <h3><?php _e('Existing Custom Taxonomies', 'evo-property-suite'); ?></h3>
                             <div id="custom-taxonomies-list">
                                 <?php
                                 $custom_taxonomies = get_option('wps_custom_taxonomies', array());
                                 if (!empty($custom_taxonomies)) {
                                     echo '<table class="wp-list-table widefat fixed striped">';
-                                    echo '<thead><tr><th>' . __('Name', 'wps') . '</th><th>' . __('Slug', 'wps') . '</th><th>' . __('Actions', 'wps') . '</th></tr></thead>';
+                                    echo '<thead><tr><th>' . __('Name', 'evo-property-suite') . '</th><th>' . __('Slug', 'evo-property-suite') . '</th><th>' . __('Actions', 'evo-property-suite') . '</th></tr></thead>';
                                     echo '<tbody>';
                                     foreach ($custom_taxonomies as $tax) {
                                         echo '<tr>';
                                         echo '<td>' . esc_html($tax['name']) . '</td>';
                                         echo '<td><code>' . esc_html($tax['slug']) . '</code></td>';
-                                        echo '<td><button type="button" class="button delete-taxonomy" data-slug="' . esc_attr($tax['slug']) . '">' . __('Delete', 'wps') . '</button></td>';
+                                        echo '<td><button type="button" class="button delete-taxonomy" data-slug="' . esc_attr($tax['slug']) . '">' . __('Delete', 'evo-property-suite') . '</button></td>';
                                         echo '</tr>';
                                     }
                                     echo '</tbody></table>';
                                 } else {
-                                    echo '<p class="description">' . __('No custom taxonomies created yet.', 'wps') . '</p>';
+                                    echo '<p class="description">' . __('No custom taxonomies created yet.', 'evo-property-suite') . '</p>';
                                 }
                                 ?>
                             </div>
@@ -613,13 +613,13 @@ function wps_settings_page() {
                 <!-- Single Property Page Tab -->
                 <div class="tab-content" id="single">
                     <div class="settings-section">
-                        <h2><?php _e('Single Property Page', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Customize the agent card, contact form, and labels shown on the single property detail page.', 'wps'); ?></p>
+                        <h2><?php _e('Single Property Page', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Customize the agent card, contact form, and labels shown on the single property detail page.', 'evo-property-suite'); ?></p>
 
-                        <h3><?php _e('Agent Card', 'wps'); ?></h3>
+                        <h3><?php _e('Agent Card', 'evo-property-suite'); ?></h3>
                         <table class="form-table">
                             <tr>
-                                <th scope="row"><label for="agent_name"><?php _e('Agent Name', 'wps'); ?></label></th>
+                                <th scope="row"><label for="agent_name"><?php _e('Agent Name', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="text" id="agent_name" name="wps_agent_name"
                                            value="<?php echo esc_attr(get_option('wps_agent_name', 'John Smith')); ?>"
@@ -627,7 +627,7 @@ function wps_settings_page() {
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="agent_photo"><?php _e('Agent Photo', 'wps'); ?></label></th>
+                                <th scope="row"><label for="agent_photo"><?php _e('Agent Photo', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <div class="image-upload-container" style="text-align:left;">
                                         <img id="agent_photo_preview"
@@ -636,14 +636,14 @@ function wps_settings_page() {
                                         <br/>
                                         <input type="hidden" id="agent_photo" name="wps_agent_photo"
                                                value="<?php echo esc_attr(get_option('wps_agent_photo', '')); ?>" />
-                                        <button type="button" class="button wps-upload-img" data-target="agent_photo"><?php _e('Upload Photo', 'wps'); ?></button>
+                                        <button type="button" class="button wps-upload-img" data-target="agent_photo"><?php _e('Upload Photo', 'evo-property-suite'); ?></button>
                                         <button type="button" class="button wps-remove-img" data-target="agent_photo"
-                                                <?php echo get_option('wps_agent_photo') ? '' : 'style="display:none;"'; ?>><?php _e('Remove', 'wps'); ?></button>
+                                                <?php echo get_option('wps_agent_photo') ? '' : 'style="display:none;"'; ?>><?php _e('Remove', 'evo-property-suite'); ?></button>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="agent_role"><?php _e('Agent Role / Title', 'wps'); ?></label></th>
+                                <th scope="row"><label for="agent_role"><?php _e('Agent Role / Title', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="text" id="agent_role" name="wps_agent_role"
                                            value="<?php echo esc_attr(get_option('wps_agent_role', 'Property Agent')); ?>"
@@ -651,7 +651,7 @@ function wps_settings_page() {
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="agent_phone"><?php _e('Agent Phone', 'wps'); ?></label></th>
+                                <th scope="row"><label for="agent_phone"><?php _e('Agent Phone', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="text" id="agent_phone" name="wps_agent_phone"
                                            value="<?php echo esc_attr(get_option('wps_agent_phone', '+1 (555) 123-4567')); ?>"
@@ -659,7 +659,7 @@ function wps_settings_page() {
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="agent_email"><?php _e('Agent Email', 'wps'); ?></label></th>
+                                <th scope="row"><label for="agent_email"><?php _e('Agent Email', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="email" id="agent_email" name="wps_agent_email"
                                            value="<?php echo esc_attr(get_option('wps_agent_email', '')); ?>"
@@ -668,10 +668,10 @@ function wps_settings_page() {
                             </tr>
                         </table>
 
-                        <h3 style="margin-top:30px;"><?php _e('Contact Form', 'wps'); ?></h3>
+                        <h3 style="margin-top:30px;"><?php _e('Contact Form', 'evo-property-suite'); ?></h3>
                         <table class="form-table">
                             <tr>
-                                <th scope="row"><label for="contact_form_heading"><?php _e('Form Heading', 'wps'); ?></label></th>
+                                <th scope="row"><label for="contact_form_heading"><?php _e('Form Heading', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="text" id="contact_form_heading" name="wps_contact_form_heading"
                                            value="<?php echo esc_attr(get_option('wps_contact_form_heading', 'Get More Details')); ?>"
@@ -679,7 +679,7 @@ function wps_settings_page() {
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="contact_form_subtitle"><?php _e('Form Subtitle', 'wps'); ?></label></th>
+                                <th scope="row"><label for="contact_form_subtitle"><?php _e('Form Subtitle', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="text" id="contact_form_subtitle" name="wps_contact_form_subtitle"
                                            value="<?php echo esc_attr(get_option('wps_contact_form_subtitle', 'Schedule a tour or request more information about this property.')); ?>"
@@ -688,24 +688,24 @@ function wps_settings_page() {
                             </tr>
                         </table>
 
-                        <h3 style="margin-top:30px;"><?php _e('Labels & Links', 'wps'); ?></h3>
+                        <h3 style="margin-top:30px;"><?php _e('Labels & Links', 'evo-property-suite'); ?></h3>
                         <table class="form-table">
                             <tr>
-                                <th scope="row"><label for="featured_label"><?php _e('Featured Label Text', 'wps'); ?></label></th>
+                                <th scope="row"><label for="featured_label"><?php _e('Featured Label Text', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="text" id="featured_label" name="wps_featured_label"
                                            value="<?php echo esc_attr(get_option('wps_featured_label', 'FEATURED PROPERTY')); ?>"
                                            class="regular-text" />
-                                    <p class="description"><?php _e('Small label shown above the property title in the sidebar', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Small label shown above the property title in the sidebar', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="schedule_tour_url"><?php _e('Schedule Tour URL', 'wps'); ?></label></th>
+                                <th scope="row"><label for="schedule_tour_url"><?php _e('Schedule Tour URL', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="url" id="schedule_tour_url" name="wps_schedule_tour_url"
                                            value="<?php echo esc_attr(get_option('wps_schedule_tour_url', '')); ?>"
                                            class="large-text" placeholder="https://calendly.com/your-link (leave empty to scroll to contact form)" />
-                                    <p class="description"><?php _e('External booking link (e.g. Calendly). Leave empty to scroll to the on-page contact form instead.', 'wps'); ?></p>
+                                    <p class="description"><?php _e('External booking link (e.g. Calendly). Leave empty to scroll to the on-page contact form instead.', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                         </table>
@@ -715,54 +715,54 @@ function wps_settings_page() {
                 <!-- Contact & Lead Form Tab -->
                 <div class="tab-content" id="contact">
                     <div class="settings-section">
-                        <h2><?php _e('Contact & Lead Form', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Configure contact information and lead capture form', 'wps'); ?></p>
+                        <h2><?php _e('Contact & Lead Form', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Configure contact information and lead capture form', 'evo-property-suite'); ?></p>
                         
                         <table class="form-table">
                             <tr>
                                 <th scope="row">
-                                    <label for="contact_email"><?php _e('Contact Email', 'wps'); ?></label>
+                                    <label for="contact_email"><?php _e('Contact Email', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="email" id="contact_email" name="wps_contact_email" 
                                            value="<?php echo esc_attr(function_exists('wps_get_contact_email') ? wps_get_contact_email() : get_option('wps_contact_email', get_option('admin_email'))); ?>" 
                                            class="regular-text" />
-                                    <p class="description"><?php _e('Email address for contact inquiries', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Email address for contact inquiries', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="contact_phone"><?php _e('Contact Phone', 'wps'); ?></label>
+                                    <label for="contact_phone"><?php _e('Contact Phone', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="tel" id="contact_phone" name="wps_contact_phone" 
                                            value="<?php echo esc_attr(get_option('wps_contact_phone', '')); ?>" 
                                            class="regular-text" />
-                                    <p class="description"><?php _e('Phone number for contact inquiries', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Phone number for contact inquiries', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="enable_lead_form"><?php _e('Enable Lead Form', 'wps'); ?></label>
+                                    <label for="enable_lead_form"><?php _e('Enable Lead Form', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="checkbox" name="wps_enable_lead_form" 
                                            <?php checked(get_option('wps_enable_lead_form', '1'), '1'); ?> />
-                                    <p class="description"><?php _e('Show lead capture form on property details page', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Show lead capture form on property details page', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="lead_form_title"><?php _e('Lead Form Title', 'wps'); ?></label>
+                                    <label for="lead_form_title"><?php _e('Lead Form Title', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="text" id="lead_form_title" name="wps_lead_form_title" 
                                            value="<?php echo esc_attr(get_option('wps_lead_form_title', 'Interested in this property?')); ?>" 
                                            class="regular-text" />
-                                    <p class="description"><?php _e('Title text for the lead capture form', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Title text for the lead capture form', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                         </table>
@@ -772,30 +772,30 @@ function wps_settings_page() {
                 <!-- API Keys Tab -->
                 <div class="tab-content" id="api">
                     <div class="settings-section">
-                        <h2><?php _e('API Keys Configuration', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Configure third-party API keys for enhanced functionality', 'wps'); ?></p>
+                        <h2><?php _e('API Keys Configuration', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Configure third-party API keys for enhanced functionality', 'evo-property-suite'); ?></p>
                         
                         <table class="form-table">
                             <tr>
                                 <th scope="row">
-                                    <label for="google_api_key"><?php _e('Google Maps API Key', 'wps'); ?></label>
+                                    <label for="google_api_key"><?php _e('Google Maps API Key', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="text" id="google_api_key" name="wps_google_api_key" 
                                            value="<?php echo esc_attr(get_option('wps_google_api_key', '')); ?>" 
                                            class="regular-text code" placeholder="AIzaSy..." />
                                     <p class="description">
-                                        <?php _e('Enter your Google Places API key for address autocomplete.', 'wps'); ?><br/>
-                                        <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank"><?php _e('Get API Key →', 'wps'); ?></a>
+                                        <?php _e('Enter your Google Places API key for address autocomplete.', 'evo-property-suite'); ?><br/>
+                                        <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank"><?php _e('Get API Key →', 'evo-property-suite'); ?></a>
                                     </p>
                                     <div class="api-setup-instructions" style="margin-top: 15px; padding: 15px; background: #fff; border-left: 4px solid #2271b1;">
-                                        <h4 style="margin-top: 0;"><?php _e('Setup Instructions:', 'wps'); ?></h4>
+                                        <h4 style="margin-top: 0;"><?php _e('Setup Instructions:', 'evo-property-suite'); ?></h4>
                                         <ol>
-                                            <li><?php _e('Go to Google Cloud Console', 'wps'); ?></li>
-                                            <li><?php _e('Create a project or select existing', 'wps'); ?></li>
-                                            <li><?php _e('Enable "Places API" and "Maps JavaScript API"', 'wps'); ?></li>
-                                            <li><?php _e('Create API credentials', 'wps'); ?></li>
-                                            <li><?php _e('Paste the API key here', 'wps'); ?></li>
+                                            <li><?php _e('Go to Google Cloud Console', 'evo-property-suite'); ?></li>
+                                            <li><?php _e('Create a project or select existing', 'evo-property-suite'); ?></li>
+                                            <li><?php _e('Enable "Places API" and "Maps JavaScript API"', 'evo-property-suite'); ?></li>
+                                            <li><?php _e('Create API credentials', 'evo-property-suite'); ?></li>
+                                            <li><?php _e('Paste the API key here', 'evo-property-suite'); ?></li>
                                         </ol>
                                     </div>
                                 </td>
@@ -807,18 +807,18 @@ function wps_settings_page() {
                 <!-- Advanced Tab -->
                 <div class="tab-content" id="advanced">
                     <div class="settings-section">
-                        <h2><?php _e('Advanced Settings', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Custom CSS configuration', 'wps'); ?></p>
+                        <h2><?php _e('Advanced Settings', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Custom CSS configuration', 'evo-property-suite'); ?></p>
                         
                         <table class="form-table">
                             <tr>
                                 <th scope="row">
-                                    <label for="custom_css"><?php _e('Custom CSS', 'wps'); ?></label>
+                                    <label for="custom_css"><?php _e('Custom CSS', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <textarea id="custom_css" name="wps_custom_css" 
                                               rows="10" class="large-text code"><?php echo esc_textarea(get_option('wps_custom_css', '')); ?></textarea>
-                                    <p class="description"><?php _e('Add custom CSS to override plugin styles. Use with caution.', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Add custom CSS to override plugin styles. Use with caution.', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                         </table>
@@ -830,12 +830,12 @@ function wps_settings_page() {
 
                     <!-- CTA Section -->
                     <div class="settings-section">
-                        <h2><?php _e('CTA Section — "Sell or Rent Your Property"', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Customize the call-to-action banner shown at the bottom of the property listings page.', 'wps'); ?></p>
+                        <h2><?php _e('CTA Section — "Sell or Rent Your Property"', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Customize the call-to-action banner shown at the bottom of the property listings page.', 'evo-property-suite'); ?></p>
 
                         <table class="form-table">
                             <tr>
-                                <th scope="row"><label for="cta_image"><?php _e('CTA Image', 'wps'); ?></label></th>
+                                <th scope="row"><label for="cta_image"><?php _e('CTA Image', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <div class="image-upload-container">
                                         <img id="cta_image_preview"
@@ -844,15 +844,15 @@ function wps_settings_page() {
                                         <br/>
                                         <input type="hidden" id="cta_image" name="wps_cta_image"
                                                value="<?php echo esc_attr(get_option('wps_cta_image', '')); ?>" />
-                                        <button type="button" class="button wps-upload-img" data-target="cta_image"><?php _e('Upload Image', 'wps'); ?></button>
+                                        <button type="button" class="button wps-upload-img" data-target="cta_image"><?php _e('Upload Image', 'evo-property-suite'); ?></button>
                                         <button type="button" class="button wps-remove-img" data-target="cta_image"
-                                                <?php echo get_option('wps_cta_image') ? '' : 'style="display:none;"'; ?>><?php _e('Remove', 'wps'); ?></button>
-                                        <p class="description"><?php _e('Recommended size: 600×500 px', 'wps'); ?></p>
+                                                <?php echo get_option('wps_cta_image') ? '' : 'style="display:none;"'; ?>><?php _e('Remove', 'evo-property-suite'); ?></button>
+                                        <p class="description"><?php _e('Recommended size: 600×500 px', 'evo-property-suite'); ?></p>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="cta_title"><?php _e('Heading', 'wps'); ?></label></th>
+                                <th scope="row"><label for="cta_title"><?php _e('Heading', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="text" id="cta_title" name="wps_cta_title"
                                            value="<?php echo esc_attr(get_option('wps_cta_title', 'Want to Sell or Rent Your Property?')); ?>"
@@ -860,14 +860,14 @@ function wps_settings_page() {
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="cta_description"><?php _e('Description', 'wps'); ?></label></th>
+                                <th scope="row"><label for="cta_description"><?php _e('Description', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <textarea id="cta_description" name="wps_cta_description" rows="3"
                                               class="large-text"><?php echo esc_textarea(get_option('wps_cta_description', 'List your property with us and reach thousands of potential buyers and renters.')); ?></textarea>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="cta_button_text"><?php _e('Button Text', 'wps'); ?></label></th>
+                                <th scope="row"><label for="cta_button_text"><?php _e('Button Text', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="text" id="cta_button_text" name="wps_cta_button_text"
                                            value="<?php echo esc_attr(get_option('wps_cta_button_text', 'Add Property Now')); ?>"
@@ -875,7 +875,7 @@ function wps_settings_page() {
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="cta_button_url"><?php _e('Button URL', 'wps'); ?></label></th>
+                                <th scope="row"><label for="cta_button_url"><?php _e('Button URL', 'evo-property-suite'); ?></label></th>
                                 <td>
                                     <input type="url" id="cta_button_url" name="wps_cta_button_url"
                                            value="<?php echo esc_attr(get_option('wps_cta_button_url', '/wp-admin/post-new.php?post_type=wps_property')); ?>"
@@ -883,12 +883,12 @@ function wps_settings_page() {
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="cta_bg_color"><?php _e('Background Color', 'wps'); ?></label></th>
+                                <th scope="row"><label for="cta_bg_color"><?php _e('Background Color', 'evo-property-suite'); ?></label></th>
                                 <td><input type="color" id="cta_bg_color" name="wps_cta_bg_color"
                                            value="<?php echo esc_attr(get_option('wps_cta_bg_color', '#f0f9ff')); ?>" class="color-picker" /></td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="cta_text_color"><?php _e('Text Color', 'wps'); ?></label></th>
+                                <th scope="row"><label for="cta_text_color"><?php _e('Text Color', 'evo-property-suite'); ?></label></th>
                                 <td><input type="color" id="cta_text_color" name="wps_cta_text_color"
                                            value="<?php echo esc_attr(get_option('wps_cta_text_color', '#1e3a5f')); ?>" class="color-picker" /></td>
                             </tr>
@@ -897,17 +897,17 @@ function wps_settings_page() {
 
                     <!-- Features / Trust Section -->
                     <div class="settings-section" style="margin-top: 40px;">
-                        <h2><?php _e('Features Section — "Trusted by Thousands"', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Customize the 4-column feature strip shown at the very bottom of the page.', 'wps'); ?></p>
+                        <h2><?php _e('Features Section — "Trusted by Thousands"', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Customize the 4-column feature strip shown at the very bottom of the page.', 'evo-property-suite'); ?></p>
 
                         <table class="form-table">
                             <tr>
-                                <th scope="row"><label for="features_bg_color"><?php _e('Section Background', 'wps'); ?></label></th>
+                                <th scope="row"><label for="features_bg_color"><?php _e('Section Background', 'evo-property-suite'); ?></label></th>
                                 <td><input type="color" id="features_bg_color" name="wps_features_bg_color"
                                            value="<?php echo esc_attr(get_option('wps_features_bg_color', '#ffffff')); ?>" class="color-picker" /></td>
                             </tr>
                             <tr>
-                                <th scope="row"><label for="features_text_color"><?php _e('Text Color', 'wps'); ?></label></th>
+                                <th scope="row"><label for="features_text_color"><?php _e('Text Color', 'evo-property-suite'); ?></label></th>
                                 <td><input type="color" id="features_text_color" name="wps_features_text_color"
                                            value="<?php echo esc_attr(get_option('wps_features_text_color', '#1f2937')); ?>" class="color-picker" /></td>
                             </tr>
@@ -923,24 +923,24 @@ function wps_settings_page() {
                         for ($i = 1; $i <= 4; $i++):
                             $d = $feature_defaults[$i]; ?>
                             <h3 style="margin-top:25px; border-top:1px solid #ddd; padding-top:20px;">
-                                <?php printf(__('Feature Item %d', 'wps'), $i); ?>
+                                <?php printf(__('Feature Item %d', 'evo-property-suite'), $i); ?>
                             </h3>
                             <table class="form-table">
                                 <tr>
-                                    <th scope="row"><label for="feature_<?php echo $i; ?>_icon"><?php _e('Icon (Font Awesome class)', 'wps'); ?></label></th>
+                                    <th scope="row"><label for="feature_<?php echo $i; ?>_icon"><?php _e('Icon (Font Awesome class)', 'evo-property-suite'); ?></label></th>
                                     <td>
                                         <input type="text" id="feature_<?php echo $i; ?>_icon"
                                                name="wps_feature_<?php echo $i; ?>_icon"
                                                value="<?php echo esc_attr(get_option("wps_feature_{$i}_icon", $d['icon'])); ?>"
                                                class="regular-text" placeholder="fas fa-star" />
                                         <p class="description">
-                                            <?php _e('Find icons at', 'wps'); ?>
+                                            <?php _e('Find icons at', 'evo-property-suite'); ?>
                                             <a href="https://fontawesome.com/icons" target="_blank">fontawesome.com/icons</a>
                                         </p>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row"><label for="feature_<?php echo $i; ?>_title"><?php _e('Title', 'wps'); ?></label></th>
+                                    <th scope="row"><label for="feature_<?php echo $i; ?>_title"><?php _e('Title', 'evo-property-suite'); ?></label></th>
                                     <td>
                                         <input type="text" id="feature_<?php echo $i; ?>_title"
                                                name="wps_feature_<?php echo $i; ?>_title"
@@ -949,7 +949,7 @@ function wps_settings_page() {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row"><label for="feature_<?php echo $i; ?>_description"><?php _e('Description', 'wps'); ?></label></th>
+                                    <th scope="row"><label for="feature_<?php echo $i; ?>_description"><?php _e('Description', 'evo-property-suite'); ?></label></th>
                                     <td>
                                         <textarea id="feature_<?php echo $i; ?>_description"
                                                   name="wps_feature_<?php echo $i; ?>_description"
@@ -964,14 +964,14 @@ function wps_settings_page() {
                 <!-- Email Templates Tab -->
                 <div class="tab-content" id="email-templates">
                     <div class="settings-section">
-                        <h2><?php _e('Email Template — Lead Notifications', 'wps'); ?></h2>
-                        <p class="section-description"><?php _e('Customize the HTML email template sent to admins when a new lead is captured. Available variables are listed below.', 'wps'); ?></p>
+                        <h2><?php _e('Email Template — Lead Notifications', 'evo-property-suite'); ?></h2>
+                        <p class="section-description"><?php _e('Customize the HTML email template sent to admins when a new lead is captured. Available variables are listed below.', 'evo-property-suite'); ?></p>
                         
                         <!-- Available Variables -->
                         <div style="background: #f0f6fc; border-left: 4px solid #2271b1; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
-                            <h3 style="margin-top: 0; color: #1d2327;"><?php _e('Available Variables', 'wps'); ?></h3>
+                            <h3 style="margin-top: 0; color: #1d2327;"><?php _e('Available Variables', 'evo-property-suite'); ?></h3>
                             <p style="margin: 10px 0; font-size: 13px; color: #3c434a;">
-                                <?php _e('Use these variables in your email template. They will be replaced with actual values:', 'wps'); ?>
+                                <?php _e('Use these variables in your email template. They will be replaced with actual values:', 'evo-property-suite'); ?>
                             </p>
                             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                                 <?php foreach (wps_get_email_template_variables() as $var => $desc): ?>
@@ -986,19 +986,19 @@ function wps_settings_page() {
                         <table class="form-table">
                             <tr>
                                 <th scope="row">
-                                    <label for="lead_email_subject"><?php _e('Email Subject', 'wps'); ?></label>
+                                    <label for="lead_email_subject"><?php _e('Email Subject', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <input type="text" id="lead_email_subject" name="wps_lead_email_subject" 
                                            value="<?php echo esc_attr(wps_get_lead_email_subject()); ?>" 
                                            class="large-text" />
-                                    <p class="description"><?php _e('Use variables like {name}, {property_title}, etc. in the subject line.', 'wps'); ?></p>
+                                    <p class="description"><?php _e('Use variables like {name}, {property_title}, etc. in the subject line.', 'evo-property-suite'); ?></p>
                                 </td>
                             </tr>
                             
                             <tr>
                                 <th scope="row">
-                                    <label for="lead_email_template"><?php _e('Email HTML Template', 'wps'); ?></label>
+                                    <label for="lead_email_template"><?php _e('Email HTML Template', 'evo-property-suite'); ?></label>
                                 </th>
                                 <td>
                                     <?php 
@@ -1015,10 +1015,10 @@ function wps_settings_page() {
                                     );
                                     ?>
                                     <p class="description">
-                                        <?php _e('Edit the HTML template for lead notification emails. You can customize styling, layout, and content.', 'wps'); ?>
+                                        <?php _e('Edit the HTML template for lead notification emails. You can customize styling, layout, and content.', 'evo-property-suite'); ?>
                                     </p>
                                     <button type="button" class="button" id="reset-email-template" style="margin-top: 10px;">
-                                        <?php _e('Reset to Default Template', 'wps'); ?>
+                                        <?php _e('Reset to Default Template', 'evo-property-suite'); ?>
                                     </button>
                                 </td>
                             </tr>
@@ -1030,7 +1030,7 @@ function wps_settings_page() {
         </div>
 
         <div class="save-settings-footer">
-            <button type="button" class="button button-primary button-large" id="save-all-settings-bottom"><?php _e('Save All Changes', 'wps'); ?></button>
+            <button type="button" class="button button-primary button-large" id="save-all-settings-bottom"><?php _e('Save All Changes', 'evo-property-suite'); ?></button>
             <span class="save-status" id="save-status"></span>
         </div>
     </div>
@@ -1038,22 +1038,22 @@ function wps_settings_page() {
     jQuery(function($){
         $('#import-sample-data').on('click', function(e){
             e.preventDefault();
-            if (!confirm('<?php echo esc_js(__('This will import sample properties and settings. Continue?', 'wps')); ?>')) return;
-            var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Importing...', 'wps')); ?>');
+            if (!confirm('<?php echo esc_js(__('This will import sample properties and settings. Continue?', 'evo-property-suite')); ?>')) return;
+            var btn = $(this).prop('disabled', true).text('<?php echo esc_js(__('Importing...', 'evo-property-suite')); ?>');
             $.post(ajaxurl, {
                 action: 'wps_import_defaults',
                 nonce: '<?php echo wp_create_nonce('wps_import_defaults'); ?>'
             }).done(function(resp){
                 if (resp && resp.success) {
-                    alert('<?php echo esc_js(__('Sample data imported successfully. Refresh the properties list or visit the homepage to view them.', 'wps')); ?>');
+                    alert('<?php echo esc_js(__('Sample data imported successfully. Refresh the properties list or visit the homepage to view them.', 'evo-property-suite')); ?>');
                     location.reload();
                 } else {
-                    alert('<?php echo esc_js(__('Import failed. Check the debug log for details.', 'wps')); ?>');
-                    btn.prop('disabled', false).text('<?php echo esc_js(__('Import Sample Data', 'wps')); ?>');
+                    alert('<?php echo esc_js(__('Import failed. Check the debug log for details.', 'evo-property-suite')); ?>');
+                    btn.prop('disabled', false).text('<?php echo esc_js(__('Import Sample Data', 'evo-property-suite')); ?>');
                 }
             }).fail(function(){
-                alert('<?php echo esc_js(__('AJAX request failed. Check your connection and try again.', 'wps')); ?>');
-                btn.prop('disabled', false).text('<?php echo esc_js(__('Import Sample Data', 'wps')); ?>');
+                alert('<?php echo esc_js(__('AJAX request failed. Check your connection and try again.', 'evo-property-suite')); ?>');
+                btn.prop('disabled', false).text('<?php echo esc_js(__('Import Sample Data', 'evo-property-suite')); ?>');
             });
         });
     });
@@ -1424,7 +1424,7 @@ function wps_settings_page() {
         // Reset email template
         $('#reset-email-template').on('click', function(e) {
             e.preventDefault();
-            if (!confirm('<?php echo esc_js(__('Are you sure you want to reset the email template to default? Your current template will be replaced.', 'wps')); ?>')) {
+            if (!confirm('<?php echo esc_js(__('Are you sure you want to reset the email template to default? Your current template will be replaced.', 'evo-property-suite')); ?>')) {
                 return;
             }
             
@@ -1433,13 +1433,13 @@ function wps_settings_page() {
                 nonce: '<?php echo wp_create_nonce('wps_nonce'); ?>'
             }, function(response) {
                 if (response.success) {
-                    alert('<?php echo esc_js(__('Email template reset to default successfully. Please refresh the page.', 'wps')); ?>');
+                    alert('<?php echo esc_js(__('Email template reset to default successfully. Please refresh the page.', 'evo-property-suite')); ?>');
                     location.reload();
                 } else {
-                    alert('<?php echo esc_js(__('Error resetting template: ', 'wps')); ?>' + response.data);
+                    alert('<?php echo esc_js(__('Error resetting template: ', 'evo-property-suite')); ?>' + response.data);
                 }
             }).fail(function() {
-                alert('<?php echo esc_js(__('AJAX request failed. Please try again.', 'wps')); ?>');
+                alert('<?php echo esc_js(__('AJAX request failed. Please try again.', 'evo-property-suite')); ?>');
             });
         });
         
@@ -1773,7 +1773,7 @@ function wps_leads_page() {
     $table = $wpdb->prefix . 'property_leads';
 
     if (!current_user_can('manage_options')) {
-        wp_die(esc_html__('You do not have permission to view leads.', 'wps'));
+        wp_die(esc_html__('You do not have permission to view leads.', 'evo-property-suite'));
     }
 
     if (
@@ -1805,11 +1805,11 @@ function wps_leads_page() {
     if (isset($_GET['lead_notice'])) {
         $lead_notice = sanitize_text_field(wp_unslash($_GET['lead_notice']));
         if ($lead_notice === 'deleted') {
-            $notice = __('Lead deleted successfully.', 'wps');
+            $notice = __('Lead deleted successfully.', 'evo-property-suite');
         } elseif ($lead_notice === 'not_deleted') {
-            $notice = __('Lead could not be deleted or was already removed.', 'wps');
+            $notice = __('Lead could not be deleted or was already removed.', 'evo-property-suite');
         } elseif ($lead_notice === 'invalid') {
-            $notice = __('Invalid delete request.', 'wps');
+            $notice = __('Invalid delete request.', 'evo-property-suite');
         }
     }
 
@@ -1847,8 +1847,8 @@ function wps_leads_page() {
     );
     ?>
     <div class="wrap wps-leads">
-        <h1><?php _e('Captured Leads', 'wps'); ?></h1>
-        <p class="description"><?php _e('Leads captured from the property detail pages are listed below.', 'wps'); ?></p>
+        <h1><?php _e('Captured Leads', 'evo-property-suite'); ?></h1>
+        <p class="description"><?php _e('Leads captured from the property detail pages are listed below.', 'evo-property-suite'); ?></p>
 
         <?php if ($notice): ?>
             <div class="notice notice-info is-dismissible"><p><?php echo esc_html($notice); ?></p></div>
@@ -1888,17 +1888,17 @@ function wps_leads_page() {
             <form class="lead-search" method="get" action="<?php echo esc_url(admin_url('admin.php')); ?>">
                 <input type="hidden" name="page" value="wps-leads" />
                 <input type="hidden" name="order" value="<?php echo esc_attr(strtolower($order)); ?>" />
-                <label class="screen-reader-text" for="property-lead-search"><?php _e('Search leads', 'wps'); ?></label>
-                <input type="search" id="property-lead-search" name="s" value="<?php echo esc_attr($search); ?>" placeholder="<?php esc_attr_e('Search leads...', 'wps'); ?>" />
-                <button type="submit" class="button"><?php _e('Search', 'wps'); ?></button>
+                <label class="screen-reader-text" for="property-lead-search"><?php _e('Search leads', 'evo-property-suite'); ?></label>
+                <input type="search" id="property-lead-search" name="s" value="<?php echo esc_attr($search); ?>" placeholder="<?php esc_attr_e('Search leads...', 'evo-property-suite'); ?>" />
+                <button type="submit" class="button"><?php _e('Search', 'evo-property-suite'); ?></button>
                 <?php if ($search !== ''): ?>
-                    <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wps-leads')); ?>"><?php _e('Clear', 'wps'); ?></a>
+                    <a class="button" href="<?php echo esc_url(admin_url('admin.php?page=wps-leads')); ?>"><?php _e('Clear', 'evo-property-suite'); ?></a>
                 <?php endif; ?>
             </form>
             <span>
                 <?php
                 printf(
-                    esc_html(_n('%s lead', '%s leads', $total_items, 'wps')),
+                    esc_html(_n('%s lead', '%s leads', $total_items, 'evo-property-suite')),
                     esc_html(number_format_i18n($total_items))
                 );
                 ?>
@@ -1908,25 +1908,25 @@ function wps_leads_page() {
         <table class="wp-list-table widefat fixed striped">
             <thead>
                 <tr>
-                    <th class="column-id"><?php _e('ID', 'wps'); ?></th>
-                    <th class="column-property-id"><?php _e('Property ID', 'wps'); ?></th>
-                    <th><?php _e('Property', 'wps'); ?></th>
-                    <th><?php _e('Name', 'wps'); ?></th>
-                    <th><?php _e('Email', 'wps'); ?></th>
-                    <th><?php _e('Phone', 'wps'); ?></th>
-                    <th class="column-message"><?php _e('Message', 'wps'); ?></th>
+                    <th class="column-id"><?php _e('ID', 'evo-property-suite'); ?></th>
+                    <th class="column-property-id"><?php _e('Property ID', 'evo-property-suite'); ?></th>
+                    <th><?php _e('Property', 'evo-property-suite'); ?></th>
+                    <th><?php _e('Name', 'evo-property-suite'); ?></th>
+                    <th><?php _e('Email', 'evo-property-suite'); ?></th>
+                    <th><?php _e('Phone', 'evo-property-suite'); ?></th>
+                    <th class="column-message"><?php _e('Message', 'evo-property-suite'); ?></th>
                     <th>
                         <a href="<?php echo esc_url($date_sort_url); ?>">
-                            <?php _e('Submitted', 'wps'); ?>
+                            <?php _e('Submitted', 'evo-property-suite'); ?>
                             <span aria-hidden="true"><?php echo $order === 'ASC' ? '↑' : '↓'; ?></span>
                         </a>
                     </th>
-                    <th class="column-actions"><?php _e('Actions', 'wps'); ?></th>
+                    <th class="column-actions"><?php _e('Actions', 'evo-property-suite'); ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (empty($leads)) : ?>
-                    <tr><td colspan="9"><?php _e('No leads found.', 'wps'); ?></td></tr>
+                    <tr><td colspan="9"><?php _e('No leads found.', 'evo-property-suite'); ?></td></tr>
                 <?php else: foreach ($leads as $lead): ?>
                     <?php
                     $delete_url = wp_nonce_url(
@@ -1957,9 +1957,9 @@ function wps_leads_page() {
                             <a
                                 href="<?php echo esc_url($delete_url); ?>"
                                 class="submitdelete"
-                                onclick="return confirm('<?php echo esc_js(__('Delete this lead permanently?', 'wps')); ?>');"
+                                onclick="return confirm('<?php echo esc_js(__('Delete this lead permanently?', 'evo-property-suite')); ?>');"
                             >
-                                <?php _e('Delete', 'wps'); ?>
+                                <?php _e('Delete', 'evo-property-suite'); ?>
                             </a>
                         </td>
                     </tr>
@@ -1983,8 +1983,8 @@ function wps_leads_page() {
                     'format' => '',
                     'current' => $paged,
                     'total' => $total_pages,
-                    'prev_text' => __('&laquo;', 'wps'),
-                    'next_text' => __('&raquo;', 'wps'),
+                    'prev_text' => __('&laquo;', 'evo-property-suite'),
+                    'next_text' => __('&raquo;', 'evo-property-suite'),
                 ));
                 ?>
             </div>
@@ -2046,35 +2046,35 @@ function wps_shortcode_guide_page() {
             <div class="ppg-header-inner">
                 <span class="dashicons dashicons-building ppg-logo"></span>
                 <div>
-                    <h1><?php _e('WP Property Suite — Shortcode Guide', 'wps'); ?></h1>
-                    <p class="ppg-subtitle"><?php _e('Everything you need to know to get your property listings up and running.', 'wps'); ?></p>
+                    <h1><?php _e('WP Property Suite — Shortcode Guide', 'evo-property-suite'); ?></h1>
+                    <p class="ppg-subtitle"><?php _e('Everything you need to know to get your property listings up and running.', 'evo-property-suite'); ?></p>
                 </div>
             </div>
         </div>
 
         <!-- Quick Start Banner -->
         <div class="ppg-quickstart">
-            <h2><span class="dashicons dashicons-rocket"></span> <?php _e('Quick Start in 2 Steps', 'wps'); ?></h2>
+            <h2><span class="dashicons dashicons-rocket"></span> <?php _e('Quick Start in 2 Steps', 'evo-property-suite'); ?></h2>
             <div class="ppg-steps">
                 <div class="ppg-step">
                     <div class="ppg-step-num">1</div>
                     <div class="ppg-step-body">
-                        <h3><?php _e('Create or Edit a Page', 'wps'); ?></h3>
-                        <p><?php _e('Go to', 'wps'); ?> <strong><?php _e('Pages → Add New', 'wps'); ?></strong> <?php _e('or open an existing page where you want to show property listings.', 'wps'); ?></p>
+                        <h3><?php _e('Create or Edit a Page', 'evo-property-suite'); ?></h3>
+                        <p><?php _e('Go to', 'evo-property-suite'); ?> <strong><?php _e('Pages → Add New', 'evo-property-suite'); ?></strong> <?php _e('or open an existing page where you want to show property listings.', 'evo-property-suite'); ?></p>
                     </div>
                 </div>
                 <div class="ppg-step">
                     <div class="ppg-step-num">2</div>
                     <div class="ppg-step-body">
-                        <h3><?php _e('Paste the Shortcode', 'wps'); ?></h3>
-                        <p><?php _e('Add a <strong>Shortcode block</strong> (or Classic Editor) and paste:', 'wps'); ?></p>
+                        <h3><?php _e('Paste the Shortcode', 'evo-property-suite'); ?></h3>
+                        <p><?php _e('Add a <strong>Shortcode block</strong> (or Classic Editor) and paste:', 'evo-property-suite'); ?></p>
                         <div class="ppg-shortcode-box">
                             <code id="ppg-main-shortcode">[wps_search]</code>
                             <button type="button" class="button button-primary ppg-copy-btn" data-copy="[wps_search]">
-                                <span class="dashicons dashicons-clipboard"></span> <?php _e('Copy', 'wps'); ?>
+                                <span class="dashicons dashicons-clipboard"></span> <?php _e('Copy', 'evo-property-suite'); ?>
                             </button>
                         </div>
-                        <p class="ppg-note"><?php _e('Publish / Update the page and visit it — you\'ll see your full property listing with banner, search bar, filters, and property cards.', 'wps'); ?></p>
+                        <p class="ppg-note"><?php _e('Publish / Update the page and visit it — you\'ll see your full property listing with banner, search bar, filters, and property cards.', 'evo-property-suite'); ?></p>
                     </div>
                 </div>
             </div>
@@ -2082,33 +2082,33 @@ function wps_shortcode_guide_page() {
 
         <!-- Shortcode Reference -->
         <div class="ppg-section">
-            <h2><span class="dashicons dashicons-editor-code"></span> <?php _e('Available Shortcodes', 'wps'); ?></h2>
+            <h2><span class="dashicons dashicons-editor-code"></span> <?php _e('Available Shortcodes', 'evo-property-suite'); ?></h2>
             <table class="wp-list-table widefat fixed striped ppg-table">
                 <thead>
                     <tr>
-                        <th style="width:220px;"><?php _e('Shortcode', 'wps'); ?></th>
-                        <th><?php _e('Description', 'wps'); ?></th>
-                        <th style="width:200px;"><?php _e('Where to Use', 'wps'); ?></th>
-                        <th style="width:100px;"><?php _e('Copy', 'wps'); ?></th>
+                        <th style="width:220px;"><?php _e('Shortcode', 'evo-property-suite'); ?></th>
+                        <th><?php _e('Description', 'evo-property-suite'); ?></th>
+                        <th style="width:200px;"><?php _e('Where to Use', 'evo-property-suite'); ?></th>
+                        <th style="width:100px;"><?php _e('Copy', 'evo-property-suite'); ?></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><code class="ppg-code">[wps_search]</code></td>
                         <td>
-                            <strong><?php _e('Full Property Listings', 'wps'); ?></strong><br>
-                            <?php _e('Displays the complete property listing page including:', 'wps'); ?>
+                            <strong><?php _e('Full Property Listings', 'evo-property-suite'); ?></strong><br>
+                            <?php _e('Displays the complete property listing page including:', 'evo-property-suite'); ?>
                             <ul style="margin:6px 0 0 18px; list-style:disc; color:#50575e;">
-                                <li><?php _e('Hero banner image with overlay text', 'wps'); ?></li>
-                                <li><?php _e('Search bar with location autocomplete (Google Places API)', 'wps'); ?></li>
-                                <li><?php _e('Filter sidebar — price range, property type, rent/sold status', 'wps'); ?></li>
-                                <li><?php _e('Property cards grid/list with badges, images, area, address', 'wps'); ?></li>
-                                <li><?php _e('Dynamic pagination (respects "Properties Per Page" setting)', 'wps'); ?></li>
-                                <li><?php _e('Individual property detail pages with lead capture form', 'wps'); ?></li>
-                                <li><?php _e('Property compare feature (if enabled)', 'wps'); ?></li>
+                                <li><?php _e('Hero banner image with overlay text', 'evo-property-suite'); ?></li>
+                                <li><?php _e('Search bar with location autocomplete (Google Places API)', 'evo-property-suite'); ?></li>
+                                <li><?php _e('Filter sidebar — price range, property type, rent/sold status', 'evo-property-suite'); ?></li>
+                                <li><?php _e('Property cards grid/list with badges, images, area, address', 'evo-property-suite'); ?></li>
+                                <li><?php _e('Dynamic pagination (respects "Properties Per Page" setting)', 'evo-property-suite'); ?></li>
+                                <li><?php _e('Individual property detail pages with lead capture form', 'evo-property-suite'); ?></li>
+                                <li><?php _e('Property compare feature (if enabled)', 'evo-property-suite'); ?></li>
                             </ul>
                         </td>
-                        <td><?php _e('Any WordPress Page or Post', 'wps'); ?></td>
+                        <td><?php _e('Any WordPress Page or Post', 'evo-property-suite'); ?></td>
                         <td>
                             <button type="button" class="button ppg-copy-btn" data-copy="[wps_search]">
                                 <span class="dashicons dashicons-clipboard"></span>
@@ -2118,19 +2118,19 @@ function wps_shortcode_guide_page() {
                     <tr>
                         <td><code class="ppg-code">[wps_recent_properties]</code></td>
                         <td>
-                            <strong><?php _e('Recently Added Properties', 'wps'); ?></strong><br>
-                            <?php _e('Displays a compact grid or slider of the latest published properties.', 'wps'); ?>
+                            <strong><?php _e('Recently Added Properties', 'evo-property-suite'); ?></strong><br>
+                            <?php _e('Displays a compact grid or slider of the latest published properties.', 'evo-property-suite'); ?>
                             <ul style="margin:6px 0 0 18px; list-style:disc; color:#50575e;">
-                                <li><?php _e('<code>posts</code> — number of properties to display, for example <code>posts="6"</code>', 'wps'); ?></li>
-                                <li><?php _e('<code>columns</code> — number of cards per row when slider is disabled, for example <code>columns="4"</code>', 'wps'); ?></li>
-                                <li><?php _e('<code>slider</code> — use <code>slider="yes"</code> to enable a horizontal slider. Columns are ignored when slider is enabled.', 'wps'); ?></li>
+                                <li><?php _e('<code>posts</code> — number of properties to display, for example <code>posts="6"</code>', 'evo-property-suite'); ?></li>
+                                <li><?php _e('<code>columns</code> — number of cards per row when slider is disabled, for example <code>columns="4"</code>', 'evo-property-suite'); ?></li>
+                                <li><?php _e('<code>slider</code> — use <code>slider="yes"</code> to enable a horizontal slider. Columns are ignored when slider is enabled.', 'evo-property-suite'); ?></li>
                             </ul>
                             <p style="margin:8px 0 0;">
                                 <code>[wps_recent_properties posts="6" columns="4"]</code><br>
                                 <code>[wps_recent_properties posts="8" slider="yes"]</code>
                             </p>
                         </td>
-                        <td><?php _e('Homepage, sidebar areas, landing pages, or blog posts', 'wps'); ?></td>
+                        <td><?php _e('Homepage, sidebar areas, landing pages, or blog posts', 'evo-property-suite'); ?></td>
                         <td>
                             <button type="button" class="button ppg-copy-btn" data-copy='[wps_recent_properties posts="6" columns="4"]'>
                                 <span class="dashicons dashicons-clipboard"></span>
@@ -2140,19 +2140,19 @@ function wps_shortcode_guide_page() {
                     <tr>
                         <td><code class="ppg-code">[wps_featured_properties]</code></td>
                         <td>
-                            <strong><?php _e('Featured Properties', 'wps'); ?></strong><br>
-                            <?php _e('Displays properties marked as featured from the Property edit screen.', 'wps'); ?>
+                            <strong><?php _e('Featured Properties', 'evo-property-suite'); ?></strong><br>
+                            <?php _e('Displays properties marked as featured from the Property edit screen.', 'evo-property-suite'); ?>
                             <ul style="margin:6px 0 0 18px; list-style:disc; color:#50575e;">
-                                <li><?php _e('<code>posts</code> — number of featured properties to display, for example <code>posts="6"</code>', 'wps'); ?></li>
-                                <li><?php _e('<code>columns</code> — number of cards per row when slider is disabled, for example <code>columns="4"</code>', 'wps'); ?></li>
-                                <li><?php _e('<code>slider</code> — use <code>slider="yes"</code> to enable a horizontal slider. Columns are ignored when slider is enabled.', 'wps'); ?></li>
+                                <li><?php _e('<code>posts</code> — number of featured properties to display, for example <code>posts="6"</code>', 'evo-property-suite'); ?></li>
+                                <li><?php _e('<code>columns</code> — number of cards per row when slider is disabled, for example <code>columns="4"</code>', 'evo-property-suite'); ?></li>
+                                <li><?php _e('<code>slider</code> — use <code>slider="yes"</code> to enable a horizontal slider. Columns are ignored when slider is enabled.', 'evo-property-suite'); ?></li>
                             </ul>
                             <p style="margin:8px 0 0;">
                                 <code>[wps_featured_properties posts="6" columns="4"]</code><br>
                                 <code>[wps_featured_properties posts="8" slider="yes"]</code>
                             </p>
                         </td>
-                        <td><?php _e('Homepage, landing pages, sidebar areas, or featured sections', 'wps'); ?></td>
+                        <td><?php _e('Homepage, landing pages, sidebar areas, or featured sections', 'evo-property-suite'); ?></td>
                         <td>
                             <button type="button" class="button ppg-copy-btn" data-copy='[wps_featured_properties posts="6" columns="4"]'>
                                 <span class="dashicons dashicons-clipboard"></span>
@@ -2165,97 +2165,97 @@ function wps_shortcode_guide_page() {
 
         <!-- What You Can Customize -->
         <div class="ppg-section">
-            <h2><span class="dashicons dashicons-admin-customizer"></span> <?php _e('What Can You Customize?', 'wps'); ?></h2>
-            <p class="ppg-intro"><?php printf(__('All settings are available at <strong>%s</strong>. Here\'s what each section controls:', 'wps'), '<a href="' . admin_url('admin.php?page=wps-settings') . '">WP Property Suite Settings</a>'); ?></p>
+            <h2><span class="dashicons dashicons-admin-customizer"></span> <?php _e('What Can You Customize?', 'evo-property-suite'); ?></h2>
+            <p class="ppg-intro"><?php printf(__('All settings are available at <strong>%s</strong>. Here\'s what each section controls:', 'evo-property-suite'), '<a href="' . admin_url('admin.php?page=wps-settings') . '">WP Property Suite Settings</a>'); ?></p>
             <div class="ppg-cards">
 
                 <div class="ppg-card">
                     <div class="ppg-card-icon"><span class="dashicons dashicons-format-image"></span></div>
-                    <h3><?php _e('Banner &amp; Header', 'wps'); ?></h3>
+                    <h3><?php _e('Banner &amp; Header', 'evo-property-suite'); ?></h3>
                     <ul>
-                        <li><?php _e('Upload or change the <strong>banner image</strong> (recommended 1920×600px)', 'wps'); ?></li>
-                        <li><?php _e('Set banner subtitle text', 'wps'); ?></li>
-                        <li><?php _e('Adjust banner height (200–800px)', 'wps'); ?></li>
-                        <li><?php _e('Change overlay opacity and color for text readability', 'wps'); ?></li>
+                        <li><?php _e('Upload or change the <strong>banner image</strong> (recommended 1920×600px)', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Set banner subtitle text', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Adjust banner height (200–800px)', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Change overlay opacity and color for text readability', 'evo-property-suite'); ?></li>
                     </ul>
-                    <p class="ppg-where"><?php _e('Found in:', 'wps'); ?> <strong><?php _e('Settings → Banner &amp; Header tab', 'wps'); ?></strong></p>
+                    <p class="ppg-where"><?php _e('Found in:', 'evo-property-suite'); ?> <strong><?php _e('Settings → Banner &amp; Header tab', 'evo-property-suite'); ?></strong></p>
                 </div>
 
                 <div class="ppg-card">
                     <div class="ppg-card-icon"><span class="dashicons dashicons-admin-appearance"></span></div>
-                    <h3><?php _e('Colors &amp; Typography', 'wps'); ?></h3>
+                    <h3><?php _e('Colors &amp; Typography', 'evo-property-suite'); ?></h3>
                     <ul>
-                        <li><?php _e('Primary, secondary, text, and background colors', 'wps'); ?></li>
-                        <li><?php _e('Property card background color', 'wps'); ?></li>
-                        <li><?php _e('Font family (Arial, Helvetica, Georgia, etc.)', 'wps'); ?></li>
-                        <li><?php _e('Base font size (12–24px)', 'wps'); ?></li>
+                        <li><?php _e('Primary, secondary, text, and background colors', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Property card background color', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Font family (Arial, Helvetica, Georgia, etc.)', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Base font size (12–24px)', 'evo-property-suite'); ?></li>
                     </ul>
-                    <p class="ppg-where"><?php _e('Found in:', 'wps'); ?> <strong><?php _e('Settings → Colors &amp; Typography tab', 'wps'); ?></strong></p>
+                    <p class="ppg-where"><?php _e('Found in:', 'evo-property-suite'); ?> <strong><?php _e('Settings → Colors &amp; Typography tab', 'evo-property-suite'); ?></strong></p>
                 </div>
 
                 <div class="ppg-card">
                     <div class="ppg-card-icon"><span class="dashicons dashicons-admin-generic"></span></div>
-                    <h3><?php _e('General Settings', 'wps'); ?></h3>
+                    <h3><?php _e('General Settings', 'evo-property-suite'); ?></h3>
                     <ul>
-                        <li><?php _e('Header text (main title on the listings page)', 'wps'); ?></li>
-                        <li><?php _e('Properties per page (pagination updates automatically)', 'wps'); ?></li>
-                        <li><?php _e('Default currency — USD, EUR, GBP, INR, PKR', 'wps'); ?></li>
-                        <li><?php _e('Enable / disable preloader animation', 'wps'); ?></li>
-                        <li><?php _e('Enable / disable property compare feature', 'wps'); ?></li>
+                        <li><?php _e('Header text (main title on the listings page)', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Properties per page (pagination updates automatically)', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Default currency — USD, EUR, GBP, INR, PKR', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Enable / disable preloader animation', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Enable / disable property compare feature', 'evo-property-suite'); ?></li>
                     </ul>
-                    <p class="ppg-where"><?php _e('Found in:', 'wps'); ?> <strong><?php _e('Settings → General tab', 'wps'); ?></strong></p>
+                    <p class="ppg-where"><?php _e('Found in:', 'evo-property-suite'); ?> <strong><?php _e('Settings → General tab', 'evo-property-suite'); ?></strong></p>
                 </div>
 
                 <div class="ppg-card">
                     <div class="ppg-card-icon"><span class="dashicons dashicons-layout"></span></div>
-                    <h3><?php _e('Property Card', 'wps'); ?></h3>
+                    <h3><?php _e('Property Card', 'evo-property-suite'); ?></h3>
                     <ul>
-                        <li><?php _e('Show / hide status badge (For Sale, For Rent, etc.)', 'wps'); ?></li>
-                        <li><?php _e('Show / hide property area', 'wps'); ?></li>
-                        <li><?php _e('Show / hide full address', 'wps'); ?></li>
+                        <li><?php _e('Show / hide status badge (For Sale, For Rent, etc.)', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Show / hide property area', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Show / hide full address', 'evo-property-suite'); ?></li>
                     </ul>
-                    <p class="ppg-where"><?php _e('Found in:', 'wps'); ?> <strong><?php _e('Settings → Property Card tab', 'wps'); ?></strong></p>
+                    <p class="ppg-where"><?php _e('Found in:', 'evo-property-suite'); ?> <strong><?php _e('Settings → Property Card tab', 'evo-property-suite'); ?></strong></p>
                 </div>
 
                 <div class="ppg-card">
                     <div class="ppg-card-icon"><span class="dashicons dashicons-email"></span></div>
-                    <h3><?php _e('Contact &amp; Lead Form', 'wps'); ?></h3>
+                    <h3><?php _e('Contact &amp; Lead Form', 'evo-property-suite'); ?></h3>
                     <ul>
-                        <li><?php _e('Set contact email and phone displayed on property pages', 'wps'); ?></li>
-                        <li><?php _e('Enable / disable the lead capture form on property detail pages', 'wps'); ?></li>
-                        <li><?php _e('Customize the lead form title text', 'wps'); ?></li>
+                        <li><?php _e('Set contact email and phone displayed on property pages', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Enable / disable the lead capture form on property detail pages', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Customize the lead form title text', 'evo-property-suite'); ?></li>
                     </ul>
-                    <p class="ppg-where"><?php _e('Found in:', 'wps'); ?> <strong><?php _e('Settings → Contact &amp; Lead Form tab', 'wps'); ?></strong></p>
+                    <p class="ppg-where"><?php _e('Found in:', 'evo-property-suite'); ?> <strong><?php _e('Settings → Contact &amp; Lead Form tab', 'evo-property-suite'); ?></strong></p>
                 </div>
 
                 <div class="ppg-card">
                     <div class="ppg-card-icon"><span class="dashicons dashicons-category"></span></div>
-                    <h3><?php _e('Custom Taxonomies', 'wps'); ?></h3>
+                    <h3><?php _e('Custom Taxonomies', 'evo-property-suite'); ?></h3>
                     <ul>
-                        <li><?php _e('Create extra property categories like <em>Floors</em>, <em>Year Built</em>, <em>Parking</em>', 'wps'); ?></li>
-                        <li><?php _e('Delete taxonomies you no longer need', 'wps'); ?></li>
-                        <li><?php _e('Taxonomies appear as filter options on the frontend automatically', 'wps'); ?></li>
+                        <li><?php _e('Create extra property categories like <em>Floors</em>, <em>Year Built</em>, <em>Parking</em>', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Delete taxonomies you no longer need', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Taxonomies appear as filter options on the frontend automatically', 'evo-property-suite'); ?></li>
                     </ul>
-                    <p class="ppg-where"><?php _e('Found in:', 'wps'); ?> <strong><?php _e('Settings → Custom Taxonomies tab', 'wps'); ?></strong></p>
+                    <p class="ppg-where"><?php _e('Found in:', 'evo-property-suite'); ?> <strong><?php _e('Settings → Custom Taxonomies tab', 'evo-property-suite'); ?></strong></p>
                 </div>
 
                 <div class="ppg-card">
                     <div class="ppg-card-icon"><span class="dashicons dashicons-admin-network"></span></div>
-                    <h3><?php _e('Google Maps API Key', 'wps'); ?></h3>
+                    <h3><?php _e('Google Maps API Key', 'evo-property-suite'); ?></h3>
                     <ul>
-                        <li><?php _e('Enables address <strong>autocomplete</strong> in the search bar', 'wps'); ?></li>
-                        <li><?php _e('Get a key from Google Cloud Console (Places API + Maps JS API)', 'wps'); ?></li>
+                        <li><?php _e('Enables address <strong>autocomplete</strong> in the search bar', 'evo-property-suite'); ?></li>
+                        <li><?php _e('Get a key from Google Cloud Console (Places API + Maps JS API)', 'evo-property-suite'); ?></li>
                     </ul>
-                    <p class="ppg-where"><?php _e('Found in:', 'wps'); ?> <strong><?php _e('Settings → API Keys tab', 'wps'); ?></strong></p>
+                    <p class="ppg-where"><?php _e('Found in:', 'evo-property-suite'); ?> <strong><?php _e('Settings → API Keys tab', 'evo-property-suite'); ?></strong></p>
                 </div>
 
                 <div class="ppg-card">
                     <div class="ppg-card-icon"><span class="dashicons dashicons-admin-tools"></span></div>
-                    <h3><?php _e('Advanced', 'wps'); ?></h3>
+                    <h3><?php _e('Advanced', 'evo-property-suite'); ?></h3>
                     <ul>
-                        <li><?php _e('Add <strong>Custom CSS</strong> to override any plugin style', 'wps'); ?></li>
+                        <li><?php _e('Add <strong>Custom CSS</strong> to override any plugin style', 'evo-property-suite'); ?></li>
                     </ul>
-                    <p class="ppg-where"><?php _e('Found in:', 'wps'); ?> <strong><?php _e('Settings → Advanced tab', 'wps'); ?></strong></p>
+                    <p class="ppg-where"><?php _e('Found in:', 'evo-property-suite'); ?> <strong><?php _e('Settings → Advanced tab', 'evo-property-suite'); ?></strong></p>
                 </div>
 
             </div>
@@ -2263,37 +2263,37 @@ function wps_shortcode_guide_page() {
 
         <!-- Layout Note -->
         <div class="ppg-section ppg-info-box">
-            <h3><span class="dashicons dashicons-info"></span> <?php _e('About Page Layout', 'wps'); ?></h3>
-            <p><?php _e('When the <code>[wps_search]</code> shortcode is detected on a page, the plugin <strong>automatically switches to a full-width layout</strong> — your theme\'s sidebar is hidden on that page only. This ensures the property listings have maximum space. Your other pages remain unaffected.', 'wps'); ?></p>
+            <h3><span class="dashicons dashicons-info"></span> <?php _e('About Page Layout', 'evo-property-suite'); ?></h3>
+            <p><?php _e('When the <code>[wps_search]</code> shortcode is detected on a page, the plugin <strong>automatically switches to a full-width layout</strong> — your theme\'s sidebar is hidden on that page only. This ensures the property listings have maximum space. Your other pages remain unaffected.', 'evo-property-suite'); ?></p>
         </div>
 
         <!-- FAQ -->
         <div class="ppg-section">
-            <h2><span class="dashicons dashicons-editor-help"></span> <?php _e('Frequently Asked Questions', 'wps'); ?></h2>
+            <h2><span class="dashicons dashicons-editor-help"></span> <?php _e('Frequently Asked Questions', 'evo-property-suite'); ?></h2>
             <div class="ppg-faq">
                 <div class="ppg-faq-item">
-                    <h4><?php _e('Can I use the shortcode on multiple pages?', 'wps'); ?></h4>
-                    <p><?php _e('Yes! Each instance renders independently with its own container. You can have property listings on your homepage, a dedicated listings page, or anywhere else.', 'wps'); ?></p>
+                    <h4><?php _e('Can I use the shortcode on multiple pages?', 'evo-property-suite'); ?></h4>
+                    <p><?php _e('Yes! Each instance renders independently with its own container. You can have property listings on your homepage, a dedicated listings page, or anywhere else.', 'evo-property-suite'); ?></p>
                 </div>
                 <div class="ppg-faq-item">
-                    <h4><?php _e('Where do I add properties (listings)?', 'wps'); ?></h4>
-                    <p><?php _e('After activating the plugin you\'ll see a <strong>Properties</strong> menu item in the left sidebar of WP Admin. Add properties there — they\'ll automatically appear wherever the shortcode is placed.', 'wps'); ?></p>
+                    <h4><?php _e('Where do I add properties (listings)?', 'evo-property-suite'); ?></h4>
+                    <p><?php _e('After activating the plugin you\'ll see a <strong>Properties</strong> menu item in the left sidebar of WP Admin. Add properties there — they\'ll automatically appear wherever the shortcode is placed.', 'evo-property-suite'); ?></p>
                 </div>
                 <div class="ppg-faq-item">
-                    <h4><?php _e('How do I change the banner image?', 'wps'); ?></h4>
-                    <p><?php printf(__('Go to <a href="%s">WP Property Suite Settings → Banner &amp; Header</a>, click "Upload Image", select from your Media Library or upload a new file (1920×600px recommended), then click Save All Changes.', 'wps'), admin_url('admin.php?page=wps-settings')); ?></p>
+                    <h4><?php _e('How do I change the banner image?', 'evo-property-suite'); ?></h4>
+                    <p><?php printf(__('Go to <a href="%s">WP Property Suite Settings → Banner &amp; Header</a>, click "Upload Image", select from your Media Library or upload a new file (1920×600px recommended), then click Save All Changes.', 'evo-property-suite'), admin_url('admin.php?page=wps-settings')); ?></p>
                 </div>
                 <div class="ppg-faq-item">
-                    <h4><?php _e('Why is Google autocomplete not working in the search bar?', 'wps'); ?></h4>
-                    <p><?php _e('Make sure you\'ve added a valid Google Maps API key under Settings → API Keys, and that both <strong>Places API</strong> and <strong>Maps JavaScript API</strong> are enabled in your Google Cloud Console project.', 'wps'); ?></p>
+                    <h4><?php _e('Why is Google autocomplete not working in the search bar?', 'evo-property-suite'); ?></h4>
+                    <p><?php _e('Make sure you\'ve added a valid Google Maps API key under Settings → API Keys, and that both <strong>Places API</strong> and <strong>Maps JavaScript API</strong> are enabled in your Google Cloud Console project.', 'evo-property-suite'); ?></p>
                 </div>
                 <div class="ppg-faq-item">
-                    <h4><?php _e('Can I use the shortcode inside Gutenberg blocks?', 'wps'); ?></h4>
-                    <p><?php _e('Yes. Add a <strong>Shortcode block</strong> and paste <code>[wps_search]</code> inside it. The React frontend will render in place.', 'wps'); ?></p>
+                    <h4><?php _e('Can I use the shortcode inside Gutenberg blocks?', 'evo-property-suite'); ?></h4>
+                    <p><?php _e('Yes. Add a <strong>Shortcode block</strong> and paste <code>[wps_search]</code> inside it. The React frontend will render in place.', 'evo-property-suite'); ?></p>
                 </div>
                 <div class="ppg-faq-item">
-                    <h4><?php _e('How does pagination work?', 'wps'); ?></h4>
-                    <p><?php _e('The plugin shows 6 posts per page by default (configurable in General settings). Pagination is dynamic — it recalculates automatically when you add or remove properties.', 'wps'); ?></p>
+                    <h4><?php _e('How does pagination work?', 'evo-property-suite'); ?></h4>
+                    <p><?php _e('The plugin shows 6 posts per page by default (configurable in General settings). Pagination is dynamic — it recalculates automatically when you add or remove properties.', 'evo-property-suite'); ?></p>
                 </div>
             </div>
         </div>
@@ -2302,11 +2302,11 @@ function wps_shortcode_guide_page() {
         <div class="ppg-footer">
             <a href="<?php echo admin_url('admin.php?page=wps-settings'); ?>" class="button button-primary button-hero">
                 <span class="dashicons dashicons-admin-generic" style="vertical-align:middle; margin-right:5px;"></span>
-                <?php _e('Open Plugin Settings', 'wps'); ?>
+                <?php _e('Open Plugin Settings', 'evo-property-suite'); ?>
             </a>
             <a href="<?php echo admin_url('edit.php?post_type=wps_property'); ?>" class="button button-secondary button-hero">
                 <span class="dashicons dashicons-building" style="vertical-align:middle; margin-right:5px;"></span>
-                <?php _e('Manage Properties', 'wps'); ?>
+                <?php _e('Manage Properties', 'evo-property-suite'); ?>
             </a>
         </div>
     </div>

@@ -29,7 +29,7 @@ function wps_post_has_search_shortcode($post) {
         return false;
     }
 
-    return has_shortcode($post->post_content, 'wps_search') || has_shortcode($post->post_content, 'wps');
+    return has_shortcode($post->post_content, 'wps_search') || has_shortcode($post->post_content, 'evo-property-suite');
 }
 
 /**
@@ -214,7 +214,7 @@ function wps_recent_properties_shortcode($atts) {
     ));
 
     if (empty($properties)) {
-        return '<div class="wps-recent-properties-empty">' . esc_html__('No properties found.', 'wps') . '</div>';
+        return '<div class="wps-recent-properties-empty">' . esc_html__('No properties found.', 'evo-property-suite') . '</div>';
     }
 
     $container_id = 'wps-recent-properties-' . uniqid();
@@ -225,7 +225,7 @@ function wps_recent_properties_shortcode($atts) {
     ?>
     <section id="<?php echo esc_attr($container_id); ?>" class="<?php echo esc_attr($wrapper_classes); ?>" style="<?php echo $slider_enabled ? '' : '--wps-recent-columns:' . esc_attr($columns) . ';--wps-recent-tablet-columns:' . esc_attr(min($columns, 2)) . ';'; ?>">
         <?php if ($slider_enabled) : ?>
-            <button type="button" class="wps-recent-slider-btn wps-recent-slider-prev" aria-label="<?php esc_attr_e('Previous properties', 'wps'); ?>">
+            <button type="button" class="wps-recent-slider-btn wps-recent-slider-prev" aria-label="<?php esc_attr_e('Previous properties', 'evo-property-suite'); ?>">
                 <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
         <?php endif; ?>
@@ -237,7 +237,7 @@ function wps_recent_properties_shortcode($atts) {
         </div>
 
         <?php if ($slider_enabled) : ?>
-            <button type="button" class="wps-recent-slider-btn wps-recent-slider-next" aria-label="<?php esc_attr_e('Next properties', 'wps'); ?>">
+            <button type="button" class="wps-recent-slider-btn wps-recent-slider-next" aria-label="<?php esc_attr_e('Next properties', 'evo-property-suite'); ?>">
                 <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
             <script>
@@ -316,7 +316,7 @@ function wps_featured_properties_shortcode($atts) {
     ));
 
     if (empty($properties)) {
-        return '<div class="wps-recent-properties-empty">' . esc_html__('No featured properties found.', 'wps') . '</div>';
+        return '<div class="wps-recent-properties-empty">' . esc_html__('No featured properties found.', 'evo-property-suite') . '</div>';
     }
 
     $container_id = 'wps-featured-properties-' . uniqid();
@@ -327,7 +327,7 @@ function wps_featured_properties_shortcode($atts) {
     ?>
     <section id="<?php echo esc_attr($container_id); ?>" class="<?php echo esc_attr($wrapper_classes); ?>" style="<?php echo $slider_enabled ? '' : '--wps-recent-columns:' . esc_attr($columns) . ';--wps-recent-tablet-columns:' . esc_attr(min($columns, 2)) . ';'; ?>">
         <?php if ($slider_enabled) : ?>
-            <button type="button" class="wps-recent-slider-btn wps-recent-slider-prev" aria-label="<?php esc_attr_e('Previous properties', 'wps'); ?>">
+            <button type="button" class="wps-recent-slider-btn wps-recent-slider-prev" aria-label="<?php esc_attr_e('Previous properties', 'evo-property-suite'); ?>">
                 <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
         <?php endif; ?>
@@ -339,7 +339,7 @@ function wps_featured_properties_shortcode($atts) {
         </div>
 
         <?php if ($slider_enabled) : ?>
-            <button type="button" class="wps-recent-slider-btn wps-recent-slider-next" aria-label="<?php esc_attr_e('Next properties', 'wps'); ?>">
+            <button type="button" class="wps-recent-slider-btn wps-recent-slider-next" aria-label="<?php esc_attr_e('Next properties', 'evo-property-suite'); ?>">
                 <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
             <script>
@@ -399,7 +399,7 @@ function wps_render_recent_property_card($property) {
     $city = get_post_meta($property->ID, '_property_city', true);
     $address = get_post_meta($property->ID, '_property_address', true);
     $status = get_post_meta($property->ID, '_property_status', true);
-    $status_label = $status ? ucwords(str_replace('-', ' ', $status)) : __('For Sale', 'wps');
+    $status_label = $status ? ucwords(str_replace('-', ' ', $status)) : __('For Sale', 'evo-property-suite');
     $location = $city ?: $address;
     $features = wps_get_recent_property_features($property->ID, $area);
     $property_url = function_exists('wps_get_property_frontend_url') ? wps_get_property_frontend_url($property) : get_permalink($property);
@@ -412,7 +412,7 @@ function wps_render_recent_property_card($property) {
                 <?php if ($thumbnail) : ?>
                     <img class="wps-recent-property-image" src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr($property->post_title); ?>">
                 <?php else : ?>
-                    <div class="wps-recent-property-placeholder"><?php esc_html_e('No Image', 'wps'); ?></div>
+                    <div class="wps-recent-property-placeholder"><?php esc_html_e('No Image', 'evo-property-suite'); ?></div>
                 <?php endif; ?>
                 <span class="wps-recent-property-badge"><?php echo esc_html($status_label); ?></span>
             </div>
@@ -454,13 +454,13 @@ function wps_get_recent_property_features($property_id, $area) {
     $features = array();
 
     if (!empty($bedrooms[0])) {
-        $features[] = array('icon' => 'fa-bed', 'label' => sprintf(__('%s Beds', 'wps'), $bedrooms[0]));
+        $features[] = array('icon' => 'fa-bed', 'label' => sprintf(__('%s Beds', 'evo-property-suite'), $bedrooms[0]));
     }
     if (!empty($bathrooms[0])) {
-        $features[] = array('icon' => 'fa-bath', 'label' => sprintf(__('%s Baths', 'wps'), $bathrooms[0]));
+        $features[] = array('icon' => 'fa-bath', 'label' => sprintf(__('%s Baths', 'evo-property-suite'), $bathrooms[0]));
     }
     if (!empty($floors[0])) {
-        $features[] = array('icon' => 'fa-building', 'label' => sprintf(__('Floor: %s', 'wps'), $floors[0]));
+        $features[] = array('icon' => 'fa-building', 'label' => sprintf(__('Floor: %s', 'evo-property-suite'), $floors[0]));
     }
     if (get_option('wps_show_area', '1') !== '0' && !empty($area)) {
         $features[] = array('icon' => 'fa-ruler-combined', 'label' => $area . ' sq ft');

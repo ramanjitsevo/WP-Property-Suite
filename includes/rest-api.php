@@ -68,7 +68,7 @@ function wps_leads_permission_callback( WP_REST_Request $request ) {
     if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
         return new WP_Error(
             'invalid_nonce',
-            __( 'Security check failed. Please refresh the page and try again.', 'wps' ),
+            __( 'Security check failed. Please refresh the page and try again.', 'evo-property-suite' ),
             array( 'status' => 403 )
         );
     }
@@ -126,7 +126,7 @@ function wps_get_property( $request ) {
     if ( ! $post || 'wps_property' !== $post->post_type ) {
         return new WP_Error(
             'not_found',
-            __( 'Property not found.', 'wps' ),
+            __( 'Property not found.', 'evo-property-suite' ),
             array( 'status' => 404 )
         );
     }
@@ -140,7 +140,7 @@ function wps_get_property( $request ) {
 
         return new WP_Error(
             'processing_error',
-            __( 'Error processing property.', 'wps' ),
+            __( 'Error processing property.', 'evo-property-suite' ),
             array( 'status' => 500 )
         );
     }
@@ -232,7 +232,7 @@ function wps_submit_lead( $request ) {
     if ( ! is_array( $params ) ) {
         return new WP_Error(
             'invalid_request',
-            __( 'Invalid request data.', 'wps' ),
+            __( 'Invalid request data.', 'evo-property-suite' ),
             array( 'status' => 400 )
         );
     }
@@ -276,7 +276,7 @@ function wps_submit_lead( $request ) {
     if ( ! empty( $honeypot ) ) {
         return new WP_Error(
             'spam_detected',
-            __( 'Spam submission detected.', 'wps' ),
+            __( 'Spam submission detected.', 'evo-property-suite' ),
             array( 'status' => 400 )
         );
     }
@@ -292,7 +292,7 @@ function wps_submit_lead( $request ) {
 
         return new WP_Error(
             'missing_fields',
-            __( 'Name and email are required.', 'wps' ),
+            __( 'Name and email are required.', 'evo-property-suite' ),
             array( 'status' => 400 )
         );
     }
@@ -308,7 +308,7 @@ function wps_submit_lead( $request ) {
 
         return new WP_Error(
             'invalid_email',
-            __( 'Please provide a valid email address.', 'wps' ),
+            __( 'Please provide a valid email address.', 'evo-property-suite' ),
             array( 'status' => 400 )
         );
     }
@@ -319,7 +319,7 @@ function wps_submit_lead( $request ) {
     if ( strlen( $name ) > 255 ) {
         return new WP_Error(
             'invalid_name',
-            __( 'Name is too long.', 'wps' ),
+            __( 'Name is too long.', 'evo-property-suite' ),
             array( 'status' => 400 )
         );
     }
@@ -327,7 +327,7 @@ function wps_submit_lead( $request ) {
     if ( strlen( $phone ) > 50 ) {
         return new WP_Error(
             'invalid_phone',
-            __( 'Phone number is too long.', 'wps' ),
+            __( 'Phone number is too long.', 'evo-property-suite' ),
             array( 'status' => 400 )
         );
     }
@@ -335,7 +335,7 @@ function wps_submit_lead( $request ) {
     if ( strlen( $message ) > 5000 ) {
         return new WP_Error(
             'invalid_message',
-            __( 'Message is too long.', 'wps' ),
+            __( 'Message is too long.', 'evo-property-suite' ),
             array( 'status' => 400 )
         );
     }
@@ -343,7 +343,7 @@ function wps_submit_lead( $request ) {
     if ( strlen( $property_title ) > 255 ) {
         return new WP_Error(
             'invalid_property_title',
-            __( 'Property title is too long.', 'wps' ),
+            __( 'Property title is too long.', 'evo-property-suite' ),
             array( 'status' => 400 )
         );
     }
@@ -359,7 +359,7 @@ function wps_submit_lead( $request ) {
 
             return new WP_Error(
                 'invalid_property',
-                __( 'Invalid property.', 'wps' ),
+                __( 'Invalid property.', 'evo-property-suite' ),
                 array( 'status' => 400 )
             );
         }
@@ -402,7 +402,7 @@ function wps_submit_lead( $request ) {
 
         return new WP_Error(
             'db_error',
-            __( 'Could not save lead. Please try again.', 'wps' ),
+            __( 'Could not save lead. Please try again.', 'evo-property-suite' ),
             array( 'status' => 500 )
         );
     }
@@ -428,9 +428,9 @@ function wps_submit_lead( $request ) {
     $template_vars = array(
         'name'           => $name,
         'email'          => $email,
-        'phone'          => $phone ?: __( 'Not provided', 'wps' ),
+        'phone'          => $phone ?: __( 'Not provided', 'evo-property-suite' ),
         'message'        => $message,
-        'property_title' => $property_title ?: __( 'Property', 'wps' ),
+        'property_title' => $property_title ?: __( 'Property', 'evo-property-suite' ),
         'property_id'    => $property_id,
         'property_url'   => wps_get_property_frontend_url( $property_id ),
         'lead_id'        => $lead_id,
@@ -455,7 +455,7 @@ function wps_submit_lead( $request ) {
         $subject_template,
         array(
             'name'           => $name,
-            'property_title' => $property_title ?: __( 'Property', 'wps' ),
+            'property_title' => $property_title ?: __( 'Property', 'evo-property-suite' ),
         )
     );
 
@@ -498,7 +498,7 @@ function wps_submit_lead( $request ) {
             'emailSent'  => $mail_sent,
             'message'    => __(
                 'Your enquiry has been submitted successfully. We will contact you shortly.',
-                'wps'
+                'evo-property-suite'
             ),
         )
     );

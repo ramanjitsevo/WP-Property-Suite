@@ -123,18 +123,18 @@ HTML;
  */
 function wps_get_email_template_variables() {
     return array(
-        '{name}' => __('Visitor full name', 'wps'),
-        '{email}' => __('Visitor email address', 'wps'),
-        '{phone}' => __('Visitor phone number', 'wps'),
-        '{message}' => __('Visitor message', 'wps'),
-        '{property_title}' => __('Property listing title', 'wps'),
-        '{property_id}' => __('Property ID number', 'wps'),
-        '{property_url}' => __('Link to property page', 'wps'),
-        '{lead_id}' => __('Unique lead ID', 'wps'),
-        '{date}' => __('Submission date and time', 'wps'),
-        '{site_name}' => __('Your website name', 'wps'),
-        '{site_url}' => __('Your website URL', 'wps'),
-        '{year}' => __('Current year', 'wps'),
+        '{name}' => __('Visitor full name', 'evo-property-suite'),
+        '{email}' => __('Visitor email address', 'evo-property-suite'),
+        '{phone}' => __('Visitor phone number', 'evo-property-suite'),
+        '{message}' => __('Visitor message', 'evo-property-suite'),
+        '{property_title}' => __('Property listing title', 'evo-property-suite'),
+        '{property_id}' => __('Property ID number', 'evo-property-suite'),
+        '{property_url}' => __('Link to property page', 'evo-property-suite'),
+        '{lead_id}' => __('Unique lead ID', 'evo-property-suite'),
+        '{date}' => __('Submission date and time', 'evo-property-suite'),
+        '{site_name}' => __('Your website name', 'evo-property-suite'),
+        '{site_url}' => __('Your website URL', 'evo-property-suite'),
+        '{year}' => __('Current year', 'evo-property-suite'),
     );
 }
 

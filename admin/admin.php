@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 function wps_add_meta_boxes() {
     add_meta_box(
         'property_details',
-        __('Property Details', 'wps'),
+        __('Property Details', 'evo-property-suite'),
         'wps_meta_box_callback',
         'wps_property',
         'normal',
@@ -70,39 +70,39 @@ function wps_meta_box_callback($post) {
     ?>
     <div class="wps-tabs" style="display:flex; gap:16px; align-items:flex-start;">
         <div class="wps-tab-list" style="width:220px; background:#fff; border:1px solid #ccd0d4; border-radius:4px; padding:8px;">
-            <button type="button" class="wps-tab-button active" data-tab="basic" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-circle-info" aria-hidden="true"></i><?php _e('Basic', 'wps'); ?></button>
-            <button type="button" class="wps-tab-button" data-tab="location" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-location-dot" aria-hidden="true"></i><?php _e('Location', 'wps'); ?></button>
-            <button type="button" class="wps-tab-button" data-tab="features" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-list-check" aria-hidden="true"></i><?php _e('Features', 'wps'); ?></button>
-            <button type="button" class="wps-tab-button" data-tab="gallery" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-images" aria-hidden="true"></i><?php _e('Gallery', 'wps'); ?></button>
-            <button type="button" class="wps-tab-button" data-tab="faq" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-circle-question" aria-hidden="true"></i><?php _e('FAQs', 'wps'); ?></button>
-            <button type="button" class="wps-tab-button" data-tab="additional" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-table-list" aria-hidden="true"></i><?php _e('Additional Details', 'wps'); ?></button>
-            <button type="button" class="wps-tab-button" data-tab="agent" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-user-tie" aria-hidden="true"></i><?php _e('Agent', 'wps'); ?></button>
+            <button type="button" class="wps-tab-button active" data-tab="basic" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-circle-info" aria-hidden="true"></i><?php _e('Basic', 'evo-property-suite'); ?></button>
+            <button type="button" class="wps-tab-button" data-tab="location" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-location-dot" aria-hidden="true"></i><?php _e('Location', 'evo-property-suite'); ?></button>
+            <button type="button" class="wps-tab-button" data-tab="features" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-list-check" aria-hidden="true"></i><?php _e('Features', 'evo-property-suite'); ?></button>
+            <button type="button" class="wps-tab-button" data-tab="gallery" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-images" aria-hidden="true"></i><?php _e('Gallery', 'evo-property-suite'); ?></button>
+            <button type="button" class="wps-tab-button" data-tab="faq" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-circle-question" aria-hidden="true"></i><?php _e('FAQs', 'evo-property-suite'); ?></button>
+            <button type="button" class="wps-tab-button" data-tab="additional" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-table-list" aria-hidden="true"></i><?php _e('Additional Details', 'evo-property-suite'); ?></button>
+            <button type="button" class="wps-tab-button" data-tab="agent" style="width:100%; padding:10px; text-align:left; border:none; background:transparent; cursor:pointer;"><i class="fas fa-user-tie" aria-hidden="true"></i><?php _e('Agent', 'evo-property-suite'); ?></button>
         </div>
 
         <div class="wps-tab-content" style="flex:1; background:#fff; border:1px solid #ccd0d4; border-radius:4px; padding:16px;">
             <div class="wps-tab-panel" id="wps-panel-basic">
     <p>
-        <label for="property_price"><?php _e('Price:', 'wps'); ?></label><br>
+        <label for="property_price"><?php _e('Price:', 'evo-property-suite'); ?></label><br>
         <input type="text" id="property_price" name="property_price" value="<?php echo esc_attr($price); ?>" style="width: 100%;" placeholder="e.g., 500000">
     </p>
     <p>
-        <label for="property_area"><?php _e('Area (sq ft):', 'wps'); ?></label><br>
+        <label for="property_area"><?php _e('Area (sq ft):', 'evo-property-suite'); ?></label><br>
         <input type="number" id="property_area" name="property_area" value="<?php echo esc_attr($area); ?>" style="width: 100%;" placeholder="e.g., 1500">
     </p>
     <p>
         <label>
             <input type="checkbox" name="property_featured" value="1" <?php checked($featured, '1'); ?>>
-            <?php _e('Mark as Featured Property', 'wps'); ?>
+            <?php _e('Mark as Featured Property', 'evo-property-suite'); ?>
         </label>
         <br>
-        <span class="description"><?php _e('Featured properties can be displayed with the [wps_featured_properties] shortcode.', 'wps'); ?></span>
+        <span class="description"><?php _e('Featured properties can be displayed with the [wps_featured_properties] shortcode.', 'evo-property-suite'); ?></span>
     </p>
             </div>
     <div class="wps-tab-panel" id="wps-panel-location" style="display:none;">
-    <h3><?php _e('Location Details', 'wps'); ?></h3>
+    <h3><?php _e('Location Details', 'evo-property-suite'); ?></h3>
     
     <p>
-        <label for="property_address"><?php _e('Full Address:', 'wps'); ?></label><br>
+        <label for="property_address"><?php _e('Full Address:', 'evo-property-suite'); ?></label><br>
         <input type="text" id="property_address" name="property_address" value="<?php echo esc_attr($address); ?>" style="width: 100%;" placeholder="Start typing to autocomplete..." class="google-autocomplete-address">
         <?php if ($google_api_key): ?>
         <script>
@@ -159,38 +159,38 @@ function wps_meta_box_callback($post) {
         });
         </script>
         <?php endif; ?>
-        <p class="description"><?php _e('Start typing an address and select from suggestions', 'wps'); ?></p>
+        <p class="description"><?php _e('Start typing an address and select from suggestions', 'evo-property-suite'); ?></p>
     </p>
     
     <table class="form-table" style="margin-top: 15px;">
         <tr>
-            <th><label for="property_city"><?php _e('City:', 'wps'); ?></label></th>
+            <th><label for="property_city"><?php _e('City:', 'evo-property-suite'); ?></label></th>
             <td><input type="text" id="property_city" name="property_city" value="<?php echo esc_attr($city); ?>" style="width: 100%;" placeholder="City"></td>
         </tr>
         <tr>
-            <th><label for="property_state"><?php _e('State:', 'wps'); ?></label></th>
+            <th><label for="property_state"><?php _e('State:', 'evo-property-suite'); ?></label></th>
             <td><input type="text" id="property_state" name="property_state" value="<?php echo esc_attr($state); ?>" style="width: 100%;" placeholder="State"></td>
         </tr>
         <tr>
-            <th><label for="property_zipcode"><?php _e('Zip Code:', 'wps'); ?></label></th>
+            <th><label for="property_zipcode"><?php _e('Zip Code:', 'evo-property-suite'); ?></label></th>
             <td><input type="text" id="property_zipcode" name="property_zipcode" value="<?php echo esc_attr($zipcode); ?>" style="width: 100%;" placeholder="Zip Code"></td>
         </tr>
         <tr>
-            <th><label for="property_country"><?php _e('Country:', 'wps'); ?></label></th>
+            <th><label for="property_country"><?php _e('Country:', 'evo-property-suite'); ?></label></th>
             <td><input type="text" id="property_country" name="property_country" value="<?php echo esc_attr($country); ?>" style="width: 100%;" placeholder="Country"></td>
         </tr>
         <tr>
-            <th><label for="property_latitude"><?php _e('Latitude:', 'wps'); ?></label></th>
+            <th><label for="property_latitude"><?php _e('Latitude:', 'evo-property-suite'); ?></label></th>
             <td>
                 <input type="text" id="property_latitude" name="property_latitude" value="<?php echo esc_attr($latitude); ?>" style="width: 100%;" placeholder="e.g., 34.052235">
-                <p class="description"><?php _e('Filled automatically when selecting a Google address. Required for the frontend map.', 'wps'); ?></p>
+                <p class="description"><?php _e('Filled automatically when selecting a Google address. Required for the frontend map.', 'evo-property-suite'); ?></p>
             </td>
         </tr>
         <tr>
-            <th><label for="property_longitude"><?php _e('Longitude:', 'wps'); ?></label></th>
+            <th><label for="property_longitude"><?php _e('Longitude:', 'evo-property-suite'); ?></label></th>
             <td>
                 <input type="text" id="property_longitude" name="property_longitude" value="<?php echo esc_attr($longitude); ?>" style="width: 100%;" placeholder="e.g., -118.243683">
-                <p class="description"><?php _e('Filled automatically when selecting a Google address. Required for the frontend map.', 'wps'); ?></p>
+                <p class="description"><?php _e('Filled automatically when selecting a Google address. Required for the frontend map.', 'evo-property-suite'); ?></p>
             </td>
         </tr>
     </table>
@@ -200,20 +200,20 @@ function wps_meta_box_callback($post) {
     <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
     
     <p>
-        <label for="property_status"><?php _e('Status:', 'wps'); ?></label><br>
+        <label for="property_status"><?php _e('Status:', 'evo-property-suite'); ?></label><br>
         <select id="property_status" name="property_status" style="width: 100%;">
-            <option value="for-sale" <?php selected($status, 'for-sale'); ?>><?php _e('For Sale', 'wps'); ?></option>
-            <option value="for-rent" <?php selected($status, 'for-rent'); ?>><?php _e('For Rent', 'wps'); ?></option>
-            <option value="sold" <?php selected($status, 'sold'); ?>><?php _e('Sold', 'wps'); ?></option>
-            <option value="rented" <?php selected($status, 'rented'); ?>><?php _e('Rented', 'wps'); ?></option>
+            <option value="for-sale" <?php selected($status, 'for-sale'); ?>><?php _e('For Sale', 'evo-property-suite'); ?></option>
+            <option value="for-rent" <?php selected($status, 'for-rent'); ?>><?php _e('For Rent', 'evo-property-suite'); ?></option>
+            <option value="sold" <?php selected($status, 'sold'); ?>><?php _e('Sold', 'evo-property-suite'); ?></option>
+            <option value="rented" <?php selected($status, 'rented'); ?>><?php _e('Rented', 'evo-property-suite'); ?></option>
         </select>
     
     </div>
 
     <div class="wps-tab-panel" id="wps-panel-gallery" style="display:none;">
-    <h3><?php _e('Property Gallery', 'wps'); ?></h3>
+    <h3><?php _e('Property Gallery', 'evo-property-suite'); ?></h3>
     <p class="description" style="margin-bottom: 12px;">
-        <?php _e('Select multiple images from the media library to display below the featured image on the single property page.', 'wps'); ?>
+        <?php _e('Select multiple images from the media library to display below the featured image on the single property page.', 'evo-property-suite'); ?>
     </p>
 
     <div id="property-gallery-preview" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
@@ -235,31 +235,31 @@ function wps_meta_box_callback($post) {
 
     <button type="button" id="wps-gallery-btn" class="button button-secondary">
         <span class="dashicons dashicons-format-gallery" style="margin-right: 5px;"></span>
-        <?php _e('Select Gallery Images', 'wps'); ?>
+        <?php _e('Select Gallery Images', 'evo-property-suite'); ?>
     </button>
     </div>
 
     <div class="wps-tab-panel" id="wps-panel-agent" style="display:none;">
     <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
 
-    <h3><?php _e('Per-Property Agent (optional)', 'wps'); ?></h3>
-    <p class="description"><?php _e('Set an agent specifically for this property. These values override the global settings on the frontend when present.', 'wps'); ?></p>
+    <h3><?php _e('Per-Property Agent (optional)', 'evo-property-suite'); ?></h3>
+    <p class="description"><?php _e('Set an agent specifically for this property. These values override the global settings on the frontend when present.', 'evo-property-suite'); ?></p>
 
     <table class="form-table">
         <tr>
-            <th><label for="property_agent_name"><?php _e('Agent Name:', 'wps'); ?></label></th>
+            <th><label for="property_agent_name"><?php _e('Agent Name:', 'evo-property-suite'); ?></label></th>
             <td><input type="text" id="property_agent_name" name="property_agent_name" value="<?php echo esc_attr($agent_name); ?>" style="width:100%;" placeholder="Agent Name"></td>
         </tr>
         <tr>
-            <th><label for="property_agent_phone"><?php _e('Agent Phone:', 'wps'); ?></label></th>
+            <th><label for="property_agent_phone"><?php _e('Agent Phone:', 'evo-property-suite'); ?></label></th>
             <td><input type="text" id="property_agent_phone" name="property_agent_phone" value="<?php echo esc_attr($agent_phone); ?>" style="width:100%;" placeholder="+1 (555) 123-4567"></td>
         </tr>
         <tr>
-            <th><label for="property_agent_email"><?php _e('Agent Email:', 'wps'); ?></label></th>
+            <th><label for="property_agent_email"><?php _e('Agent Email:', 'evo-property-suite'); ?></label></th>
             <td><input type="email" id="property_agent_email" name="property_agent_email" value="<?php echo esc_attr($agent_email); ?>" style="width:100%;" placeholder="agent@example.com"></td>
         </tr>
         <tr>
-            <th><label for="property_agent_photo"><?php _e('Agent Photo:', 'wps'); ?></label></th>
+            <th><label for="property_agent_photo"><?php _e('Agent Photo:', 'evo-property-suite'); ?></label></th>
             <td>
                 <div class="image-upload-container" style="text-align:left;">
                     <img id="property_agent_photo_preview"
@@ -267,8 +267,8 @@ function wps_meta_box_callback($post) {
                          style="<?php echo $agent_photo ? '' : 'display:none;'; ?>width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom:10px;" />
                     <br/>
                     <input type="hidden" id="property_agent_photo" name="property_agent_photo" value="<?php echo esc_attr($agent_photo); ?>" />
-                    <button type="button" class="button wps-upload-img" data-target="property_agent_photo"><?php _e('Upload Photo', 'wps'); ?></button>
-                    <button type="button" class="button wps-remove-img" data-target="property_agent_photo" <?php echo $agent_photo ? '' : 'style="display:none;"'; ?>><?php _e('Remove', 'wps'); ?></button>
+                    <button type="button" class="button wps-upload-img" data-target="property_agent_photo"><?php _e('Upload Photo', 'evo-property-suite'); ?></button>
+                    <button type="button" class="button wps-remove-img" data-target="property_agent_photo" <?php echo $agent_photo ? '' : 'style="display:none;"'; ?>><?php _e('Remove', 'evo-property-suite'); ?></button>
                 </div>
             </td>
         </tr>
@@ -276,8 +276,8 @@ function wps_meta_box_callback($post) {
     </div>
 
     <div class="wps-tab-panel" id="wps-panel-faq" style="display:none;">
-    <h3><?php _e('Property FAQs', 'wps'); ?></h3>
-    <p class="description"><?php _e('Add frequently asked questions for this property. These will appear in the FAQ tab on the frontend.', 'wps'); ?></p>
+    <h3><?php _e('Property FAQs', 'evo-property-suite'); ?></h3>
+    <p class="description"><?php _e('Add frequently asked questions for this property. These will appear in the FAQ tab on the frontend.', 'evo-property-suite'); ?></p>
 
     <div id="property-faqs-container" style="margin-bottom:12px;">
         <?php if (!empty($property_faqs) && is_array($property_faqs)): foreach ($property_faqs as $idx => $item): ?>
@@ -292,8 +292,8 @@ function wps_meta_box_callback($post) {
     </div>
 
     <div class="wps-tab-panel" id="wps-panel-additional" style="display:none;">
-    <h3><?php _e('Additional Details (repeatable)', 'wps'); ?></h3>
-    <p class="description"><?php _e('Add any extra labeled details (e.g., Year Built, Parking) that will show in the Additional Detail tab on the frontend.', 'wps'); ?></p>
+    <h3><?php _e('Additional Details (repeatable)', 'evo-property-suite'); ?></h3>
+    <p class="description"><?php _e('Add any extra labeled details (e.g., Year Built, Parking) that will show in the Additional Detail tab on the frontend.', 'evo-property-suite'); ?></p>
 
     <div id="additional-details-container" style="margin-bottom:12px;">
         <?php if (!empty($additional_details) && is_array($additional_details)): foreach ($additional_details as $idx => $item): ?>
@@ -389,8 +389,8 @@ function wps_meta_box_callback($post) {
             if (ppMediaFrame) { ppMediaFrame.open(); return; }
 
             ppMediaFrame = wp.media({
-                title: '<?php _e('Select Gallery Images', 'wps'); ?>',
-                button: { text: '<?php _e('Add to Gallery', 'wps'); ?>' },
+                title: '<?php _e('Select Gallery Images', 'evo-property-suite'); ?>',
+                button: { text: '<?php _e('Add to Gallery', 'evo-property-suite'); ?>' },
                 multiple: true,
                 library: { type: 'image' }
             });
@@ -433,8 +433,8 @@ function wps_meta_box_callback($post) {
             }
 
             wpsPropertyMediaFrame = wp.media({
-                title: '<?php esc_attr_e('Select Image', 'wps'); ?>',
-                button: { text: '<?php esc_attr_e('Use this image', 'wps'); ?>' },
+                title: '<?php esc_attr_e('Select Image', 'evo-property-suite'); ?>',
+                button: { text: '<?php esc_attr_e('Use this image', 'evo-property-suite'); ?>' },
                 multiple: false,
                 library: { type: 'image' }
             });

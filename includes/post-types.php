@@ -8,38 +8,38 @@ if (!defined('ABSPATH')) {
  */
 function wps_register_post_type() {
     $labels = array(
-        'name'                  => _x('Properties', 'Post Type General Name', 'wps'),
-        'singular_name'         => _x('Property', 'Post Type Singular Name', 'wps'),
-        'menu_name'             => __('Properties', 'wps'),
-        'name_admin_bar'        => __('Property', 'wps'),
-        'archives'              => __('Property Archives', 'wps'),
-        'attributes'            => __('Property Attributes', 'wps'),
-        'parent_item_colon'     => __('Parent Property:', 'wps'),
-        'all_items'             => __('All Properties', 'wps'),
-        'add_new_item'          => __('Add New Property', 'wps'),
-        'add_new'               => __('Add New', 'wps'),
-        'new_item'              => __('New Property', 'wps'),
-        'edit_item'             => __('Edit Property', 'wps'),
-        'update_item'           => __('Update Property', 'wps'),
-        'view_item'             => __('View Property', 'wps'),
-        'view_items'            => __('View Properties', 'wps'),
-        'search_items'          => __('Search Properties', 'wps'),
-        'not_found'             => __('Not found', 'wps'),
-        'not_found_in_trash'    => __('Not found in Trash', 'wps'),
-        'featured_image'        => __('Featured Image', 'wps'),
-        'set_featured_image'    => __('Set featured image', 'wps'),
-        'remove_featured_image' => __('Remove featured image', 'wps'),
-        'use_featured_image'    => __('Use as featured image', 'wps'),
-        'insert_into_item'      => __('Insert into property', 'wps'),
-        'uploaded_to_this_item' => __('Uploaded to this property', 'wps'),
-        'items_list'            => __('Properties list', 'wps'),
-        'items_list_navigation' => __('Properties list navigation', 'wps'),
-        'filter_items_list'     => __('Filter properties list', 'wps'),
+        'name'                  => _x('Properties', 'Post Type General Name', 'evo-property-suite'),
+        'singular_name'         => _x('Property', 'Post Type Singular Name', 'evo-property-suite'),
+        'menu_name'             => __('Properties', 'evo-property-suite'),
+        'name_admin_bar'        => __('Property', 'evo-property-suite'),
+        'archives'              => __('Property Archives', 'evo-property-suite'),
+        'attributes'            => __('Property Attributes', 'evo-property-suite'),
+        'parent_item_colon'     => __('Parent Property:', 'evo-property-suite'),
+        'all_items'             => __('All Properties', 'evo-property-suite'),
+        'add_new_item'          => __('Add New Property', 'evo-property-suite'),
+        'add_new'               => __('Add New', 'evo-property-suite'),
+        'new_item'              => __('New Property', 'evo-property-suite'),
+        'edit_item'             => __('Edit Property', 'evo-property-suite'),
+        'update_item'           => __('Update Property', 'evo-property-suite'),
+        'view_item'             => __('View Property', 'evo-property-suite'),
+        'view_items'            => __('View Properties', 'evo-property-suite'),
+        'search_items'          => __('Search Properties', 'evo-property-suite'),
+        'not_found'             => __('Not found', 'evo-property-suite'),
+        'not_found_in_trash'    => __('Not found in Trash', 'evo-property-suite'),
+        'featured_image'        => __('Featured Image', 'evo-property-suite'),
+        'set_featured_image'    => __('Set featured image', 'evo-property-suite'),
+        'remove_featured_image' => __('Remove featured image', 'evo-property-suite'),
+        'use_featured_image'    => __('Use as featured image', 'evo-property-suite'),
+        'insert_into_item'      => __('Insert into property', 'evo-property-suite'),
+        'uploaded_to_this_item' => __('Uploaded to this property', 'evo-property-suite'),
+        'items_list'            => __('Properties list', 'evo-property-suite'),
+        'items_list_navigation' => __('Properties list navigation', 'evo-property-suite'),
+        'filter_items_list'     => __('Filter properties list', 'evo-property-suite'),
     );
 
     register_post_type('wps_property', array(
-        'label'               => __('Property', 'wps'),
-        'description'         => __('Property listings for real estate', 'wps'),
+        'label'               => __('Property', 'evo-property-suite'),
+        'description'         => __('Property listings for real estate', 'evo-property-suite'),
         'labels'              => $labels,
         'supports'            => array('title', 'editor', 'excerpt', 'thumbnail', 'custom-fields'),
         'taxonomies'          => array('property-type', 'property-location', 'bedrooms', 'bathrooms', 'property-floor'),
@@ -47,7 +47,6 @@ function wps_register_post_type() {
         'public'              => true,
         'show_ui'             => true,
         'show_in_menu'        => true,
-        'menu_position'       => 5,
         'menu_icon'           => 'dashicons-building',
         'show_in_admin_bar'   => true,
         'show_in_nav_menus'   => true,
@@ -66,11 +65,11 @@ function wps_register_post_type() {
  * Register built-in property taxonomies.
  */
 function wps_register_taxonomies() {
-    wps_register_property_taxonomy('property-type', __('Property Types', 'wps'), __('Property Type', 'wps'), 'property-type');
-    wps_register_property_taxonomy('property-location', __('Locations', 'wps'), __('Location', 'wps'), 'location');
-    wps_register_property_taxonomy('bedrooms', __('Bedrooms', 'wps'), __('Bedroom', 'wps'), 'bedrooms');
-    wps_register_property_taxonomy('bathrooms', __('Bathrooms', 'wps'), __('Bathroom', 'wps'), 'bathrooms');
-    wps_register_property_taxonomy('property-floor', __('Floors', 'wps'), __('Floor', 'wps'), 'floor');
+    wps_register_property_taxonomy('property-type', __('Property Types', 'evo-property-suite'), __('Property Type', 'evo-property-suite'), 'property-type');
+    wps_register_property_taxonomy('property-location', __('Locations', 'evo-property-suite'), __('Location', 'evo-property-suite'), 'location');
+    wps_register_property_taxonomy('bedrooms', __('Bedrooms', 'evo-property-suite'), __('Bedroom', 'evo-property-suite'), 'bedrooms');
+    wps_register_property_taxonomy('bathrooms', __('Bathrooms', 'evo-property-suite'), __('Bathroom', 'evo-property-suite'), 'bathrooms');
+    wps_register_property_taxonomy('property-floor', __('Floors', 'evo-property-suite'), __('Floor', 'evo-property-suite'), 'floor');
 }
 
 /**
@@ -81,12 +80,12 @@ function wps_register_property_taxonomy($slug, $plural, $singular, $rewrite_slug
         'labels' => array(
             'name'              => $plural,
             'singular_name'     => $singular,
-            'search_items'      => sprintf(__('Search %s', 'wps'), $plural),
-            'all_items'         => sprintf(__('All %s', 'wps'), $plural),
-            'edit_item'         => sprintf(__('Edit %s', 'wps'), $singular),
-            'update_item'       => sprintf(__('Update %s', 'wps'), $singular),
-            'add_new_item'      => sprintf(__('Add New %s', 'wps'), $singular),
-            'new_item_name'     => sprintf(__('New %s Name', 'wps'), $singular),
+            'search_items'      => sprintf(__('Search %s', 'evo-property-suite'), $plural),
+            'all_items'         => sprintf(__('All %s', 'evo-property-suite'), $plural),
+            'edit_item'         => sprintf(__('Edit %s', 'evo-property-suite'), $singular),
+            'update_item'       => sprintf(__('Update %s', 'evo-property-suite'), $singular),
+            'add_new_item'      => sprintf(__('Add New %s', 'evo-property-suite'), $singular),
+            'new_item_name'     => sprintf(__('New %s Name', 'evo-property-suite'), $singular),
             'menu_name'         => $plural,
         ),
         'hierarchical'      => true,
@@ -156,7 +155,7 @@ function wps_get_property_listings_url() {
     foreach ($pages as $page_id) {
         $content = get_post_field('post_content', $page_id);
 
-        if (has_shortcode($content, 'wps_search') || has_shortcode($content, 'wps')) {
+        if (has_shortcode($content, 'wps_search') || has_shortcode($content, 'evo-property-suite')) {
             return get_permalink($page_id);
         }
     }
@@ -196,8 +195,8 @@ function wps_filter_property_row_actions($actions, $post) {
         $actions['view'] = sprintf(
             '<a href="%s" rel="bookmark" aria-label="%s">%s</a>',
             esc_url(wps_get_property_frontend_url($post)),
-            esc_attr(sprintf(__('View "%s"', 'wps'), $post->post_title)),
-            esc_html__('View', 'wps')
+            esc_attr(sprintf(__('View "%s"', 'evo-property-suite'), $post->post_title)),
+            esc_html__('View', 'evo-property-suite')
         );
     }
 
