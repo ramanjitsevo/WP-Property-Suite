@@ -263,12 +263,12 @@ function wps_meta_box_callback($post) {
             <td>
                 <div class="image-upload-container" style="text-align:left;">
                     <img id="property_agent_photo_preview"
-                         src="<?php echo esc_url($agent_photo); ?>"
-                         style="<?php echo $agent_photo ? '' : 'display:none;'; ?>width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom:10px;" />
+                         src="<?php echo esc_url( $agent_photo ); ?>"
+                         style="<?php echo $agent_photo ? 'display:block;' : 'display:none;'; ?>width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom:10px;" />
                     <br/>
                     <input type="hidden" id="property_agent_photo" name="property_agent_photo" value="<?php echo esc_attr($agent_photo); ?>" />
                     <button type="button" class="button wps-upload-img" data-target="property_agent_photo"><?php _e('Upload Photo', 'evo-property-suite'); ?></button>
-                    <button type="button" class="button wps-remove-img" data-target="property_agent_photo" <?php echo $agent_photo ? '' : 'style="display:none;"'; ?>><?php _e('Remove', 'evo-property-suite'); ?></button>
+                    <button type="button" class="button wps-remove-img" data-target="property_agent_photo" <?php echo $agent_photo ? 'style="display:block;"' : 'style="display:none;"'; ?>><?php _e('Remove', 'evo-property-suite'); ?></button>
                 </div>
             </td>
         </tr>

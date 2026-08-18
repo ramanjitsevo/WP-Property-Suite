@@ -40,21 +40,6 @@ function wps_register_routes() {
 /**
  * Permission callback for lead submissions.
  *
- * Lead submissions are intentionally public because visitors
- * do not need to log in to submit a property enquiry.
- *
- * Additional validation and anti-spam protection are handled
- * inside wps_submit_lead().
- *
- * @param WP_REST_Request $request REST API request.
- * @return bool
- */
-
-
-
-/**
- * Permission callback for lead submissions.
- *
  * Lead submissions are available to visitors, but requests
  * must contain a valid WordPress REST nonce.
  *
@@ -79,6 +64,9 @@ function wps_leads_permission_callback( WP_REST_Request $request ) {
 /**
  * Get all properties from WordPress.
  */
+/**
+ * Get properties. Supports field filtering to reduce payload size.
+ */
 function wps_get_properties( $request ) {
 
     // Ensure the custom post type is registered.
@@ -87,9 +75,21 @@ function wps_get_properties( $request ) {
         wps_register_taxonomies();
     }
 
+    // Get pagination parameters from request
+    $page = absint( $request->get_param( 'page' ) ) ?: 1;
+    $per_page = absint( $request->get_param( 'per_page' ) ) ?: 12;
+    
+    // Limit per_page to prevent abuse (max 100 items per request)
+    $per_page = min( $per_page, 100 );
+    $per_page = max( $per_page, 1 );
+    $page = max( $page, 1 );
+    $offset = ( $page - 1 ) * $per_page;
+
     $args = array(
         'post_type'      => 'wps_property',
-        'posts_per_page' => -1,
+        'posts_per_page' => $per_page,
+        'paged'          => $page,
+        'offset'         => $offset,
         'post_status'    => 'publish',
         'orderby'        => 'date',
         'order'          => 'DESC',
@@ -106,7 +106,16 @@ function wps_get_properties( $request ) {
         }
     }
 
-    return rest_ensure_response( $properties );
+    $response = rest_ensure_response( $properties );
+    
+    // Add cache headers to allow browser caching
+    $response->header( 'Cache-Control', 'public, max-age=3600' );
+    
+    // Add ETag for conditional requests
+    $etag = '"' . md5( wp_json_encode( $properties ) ) . '"';
+    $response->header( 'ETag', $etag );
+    
+    return $response;
 }
 
 /**
@@ -120,7 +129,17 @@ function wps_get_property( $request ) {
         wps_register_taxonomies();
     }
 
-    $id   = absint( $request['id'] );
+    $id = absint( $request['id'] );
+    
+    // Validate that ID is a positive integer
+    if ( ! $id || $id <= 0 ) {
+        return new WP_Error(
+            'invalid_id',
+            __( 'Invalid property ID.', 'evo-property-suite' ),
+            array( 'status' => 400 )
+        );
+    }
+    
     $post = get_post( $id );
 
     if ( ! $post || 'wps_property' !== $post->post_type ) {

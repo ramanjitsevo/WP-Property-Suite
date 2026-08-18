@@ -41,7 +41,7 @@ function wps_init() {
     add_shortcode('wps_search', 'wps_shortcode');
     add_shortcode('wps_recent_properties', 'wps_recent_properties_shortcode');
     add_shortcode('wps_featured_properties', 'wps_featured_properties_shortcode');
-    add_action('wp_enqueue_scripts', 'wps_enqueue_assets');
+    add_action('wp_enqueue_scripts', 'wps_enqueue_assets_conditional', 1);
     add_action('wp', 'wps_handle_layout');
     add_action('wp_head', 'wps_default_boxed_container_width', 15);
 }

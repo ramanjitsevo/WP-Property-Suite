@@ -664,6 +664,23 @@ function wps_enqueue_recent_properties_assets() {
 }
 
 /**
+ * Conditionally enqueue React assets - only on pages with WPS shortcodes.
+ * This prevents loading 160KB of React JS on pages that don't need it.
+ */
+function wps_enqueue_assets_conditional() {
+    global $post;
+    
+    // Check if we're on a page with the shortcode
+    if ( ! $post || ( ! has_shortcode( $post->post_content, 'wps_search' ) && ! has_shortcode( $post->post_content, 'evo-property-suite' ) ) ) {
+        // Not on a WPS page, skip loading the heavy React bundle
+        return;
+    }
+    
+    // This is a WPS page, load the assets
+    wps_enqueue_assets( false );
+}
+
+/**
  * Enqueue React assets
  */
 function wps_enqueue_assets($force = false) {

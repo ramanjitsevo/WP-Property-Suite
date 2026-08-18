@@ -164,12 +164,16 @@ function wps_render_email_template($template, $variables = array()) {
     // Escape variables for HTML output
     $escaped_vars = array();
     foreach ($variables as $key => $value) {
-        // Don't escape URLs and HTML content
-        if (in_array($key, array('property_url', 'site_url'))) {
+        // URLs: use esc_url
+        if (in_array($key, array('property_url', 'site_url'), true)) {
             $escaped_vars['{' . $key . '}'] = esc_url($value);
-        } elseif ($key === 'message') {
-            $escaped_vars['{' . $key . '}'] = wp_kses_post(nl2br($value));
-        } else {
+        } 
+        // Messages: allow limited HTML tags and escape for HTML
+        elseif ($key === 'message') {
+            $escaped_vars['{' . $key . '}'] = wp_kses_post(nl2br(sanitize_textarea_field($value)));
+        }
+        // Everything else: escape for HTML
+        else {
             $escaped_vars['{' . $key . '}'] = esc_html($value);
         }
     }

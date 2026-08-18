@@ -131,7 +131,10 @@ add_action('admin_init', 'wps_register_settings');
 function wps_import_defaults_ajax() {
     check_ajax_referer('wps_import_defaults', 'nonce');
     if (!current_user_can('manage_options')) {
-        wp_send_json_error('forbidden', 403);
+        wp_send_json_error(
+            array('message' => __('Insufficient permissions.', 'evo-property-suite')),
+            403
+        );
     }
 
     if (function_exists('wps_install_default_data')) {
@@ -140,7 +143,10 @@ function wps_import_defaults_ajax() {
         wp_send_json_success(array('message' => 'imported'));
     }
 
-    wp_send_json_error('no_func');
+    wp_send_json_error(
+        array('message' => __('Could not import default data.', 'evo-property-suite')),
+        500
+    );
 }
 add_action('wp_ajax_wps_import_defaults', 'wps_import_defaults_ajax');
 
@@ -1781,12 +1787,20 @@ function wps_leads_page() {
         && $_GET['action'] === 'delete'
     ) {
         $lead_id = absint($_GET['lead_id']);
-        if ($lead_id && wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'wps_delete_lead_' . $lead_id)) {
-            $deleted = $wpdb->delete($table, array('id' => $lead_id), array('%d'));
-            $lead_notice = $deleted ? 'deleted' : 'not_deleted';
-        } else {
-            $lead_notice = 'invalid';
+        
+        // Validate lead_id
+        if ( ! $lead_id || $lead_id <= 0 ) {
+            wp_safe_redirect( add_query_arg( 'page', 'wps-leads', admin_url( 'admin.php' ) ) );
+            exit;
         }
+        
+        $nonce = sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) );
+        if ( ! wp_verify_nonce( $nonce, 'wps_delete_lead_' . $lead_id ) ) {
+            wp_die( esc_html__( 'Security check failed.', 'evo-property-suite' ) );
+        }
+        
+        $deleted = $wpdb->delete($table, array('id' => $lead_id), array('%d'));
+        $lead_notice = $deleted ? 'deleted' : 'not_deleted';
 
         wp_safe_redirect(add_query_arg(
             array(
